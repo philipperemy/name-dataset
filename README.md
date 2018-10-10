@@ -4,6 +4,25 @@ The biggest dataset of Names, worldwide. All the countries supported.
 - 473,769 first names
 - 1,172,184 last names
 
+```
+> python3 query.py chris,brian,aufélie,doverland,unknown_name
+
+----- First names ----
+Name                           Present?
+chris                          True
+brian                          True
+aufélie                        True
+doverland                      False
+unknown_name                   False
+----- Last names ----
+Name                           Present?
+chris                          True
+brian                          True
+aufélie                        False
+doverland                      True
+unknown_name                   False
+```
+
 ## Sources and References
 
 - Generator: http://listofrandomnames.com/index.cfm?generated
