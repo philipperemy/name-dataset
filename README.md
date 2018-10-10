@@ -1,5 +1,5 @@
 # First and Last Names Dataset
-The biggest dataset of Names, worldwide.
+The biggest dataset of Names, worldwide. All the countries supported.
 
 - 473,769 first names
 - 1,172,184 last names
