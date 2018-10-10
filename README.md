@@ -15,14 +15,13 @@ chris                          True
 brian                          True
 aufélie                        True
 doverland                      False
-unknown_name                   False
+
 ----- Last names ----
 Name                           Present?
 chris                          True
 brian                          True
 aufélie                        False
-doverland                      True
-unknown_name                   False
+doverland                      False
 ```
 
 ## Sources and References
