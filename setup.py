@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-VERSION = '1.1.0'
+VERSION = '1.2.0'
 
 package_name = find_packages()[0]
 
