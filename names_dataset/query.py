@@ -1,11 +1,16 @@
+import os
+
+
 class NameDataset:
     FIRST_NAME_SEARCH = 'FIRST_NAME_SEARCH'
     LAST_NAME_SEARCH = 'LAST_NAME_SEARCH'
 
     def __init__(self):
-        with open('first_names.all.txt', 'r', errors='ignore', encoding='utf8') as r:
+        first_names_filename = os.path.join(os.path.dirname(__file__), 'first_names.all.txt')
+        with open(first_names_filename, 'r', errors='ignore', encoding='utf8') as r:
             self.first_names = r.read().strip().split('\n')
-        with open('last_names.all.txt', 'r', errors='ignore', encoding='utf8') as r:
+        last_names_filename = os.path.join(os.path.dirname(__file__), 'last_names.all.txt')
+        with open(last_names_filename, 'r', errors='ignore', encoding='utf8') as r:
             self.last_names = r.read().strip().split('\n')
 
     def search_name(self, name, name_type):
