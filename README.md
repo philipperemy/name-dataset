@@ -1,8 +1,27 @@
 # First and Last Names Dataset
+
 The biggest dataset of Names, worldwide. All the countries supported.
 
-- 473,769 first names
-- 1,172,184 last names
+- ~320k first names
+- ~670k last names
+
+```
+> python3 query.py chris,brian,aufélie,doverland,unknown_name
+
+----- First names ----
+Name                           Present?
+chris                          True
+brian                          True
+aufélie                        True
+doverland                      False
+
+----- Last names ----
+Name                           Present?
+chris                          True
+brian                          True
+aufélie                        False
+doverland                      False
+```
 
 ## Sources and References
 
