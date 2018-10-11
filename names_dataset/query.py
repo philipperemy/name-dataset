@@ -13,15 +13,15 @@ class NameDataset:
         with open(last_names_filename, 'r', errors='ignore', encoding='utf8') as r:
             self.last_names = r.read().strip().split('\n')
 
-    def search_name(self, name, name_type):
+    def _search_name(self, name, name_type):
         names = self.first_names if name_type == NameDataset.FIRST_NAME_SEARCH else self.last_names
         return name.strip().lower() in names
 
     def search_first_name(self, first_name):
-        return self.search_name(first_name, name_type=NameDataset.FIRST_NAME_SEARCH)
+        return self._search_name(first_name, name_type=NameDataset.FIRST_NAME_SEARCH)
 
     def search_last_name(self, last_name):
-        return self.search_name(last_name, name_type=NameDataset.LAST_NAME_SEARCH)
+        return self._search_name(last_name, name_type=NameDataset.LAST_NAME_SEARCH)
 
 
 if __name__ == '__main__':
