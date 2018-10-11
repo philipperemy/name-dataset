@@ -5,22 +5,17 @@ The biggest dataset of Names, worldwide. All the countries supported.
 - ~320k first names
 - ~670k last names
 
+## Installation
 ```
-> python3 query.py chris,brian,aufélie,doverland,unknown_name
+pip install names-dataset
+```
 
------ First names ----
-Name                           Present?
-chris                          True
-brian                          True
-aufélie                        True
-doverland                      False
-
------ Last names ----
-Name                           Present?
-chris                          True
-brian                          True
-aufélie                        False
-doverland                      False
+## Usage
+```python
+from names_dataset import NameDataset
+m = NameDataset()
+m.search_first_name('Brian')
+m.search_last_name('Remy')
 ```
 
 ## Sources and References
