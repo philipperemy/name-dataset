@@ -101,7 +101,13 @@ bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
 #wget -nv https://raw.githubusercontent.com/smashew/NameDatabases/master/NamesDatabases/first%20names/us.txt -P ${OUTPUT_DIR}/${DATASET}
 #wget -nv https://static1.squarespace.com/static/588c1f531e5b6c553fe26beb/t/59e8fd7d017db27f7ad2ef7a/1508441525530/F104B59A-C180-4DD1-982B-99A536ACA55F.jpeg-P ${OUTPUT_DIR}/${DATASET}
 
+echo "Generating the first and last names files"
+export LC_CTYPE=C; find ${OUTPUT_DIR} -name '*irst*.out' -print0 | xargs -0 cat | awk '{print tolower($0)}' | awk '{$1=$1};1' | sort | uniq > ${OUTPUT_DIR}/first_names.all.txt
+export LC_CTYPE=C; find ${OUTPUT_DIR} -name '*last*.out' -print0 | xargs -0 cat | awk '{print tolower($0)}' | awk '{$1=$1};1' | sort | uniq > ${OUTPUT_DIR}/last_names.all.txt
+
 echo "--------------------------------------------------"
-echo "Done. Output directory is ${OUTPUT_DIR}/"
-echo "> find ${OUTPUT_DIR} | grep '.out'"
+echo "Done. Output directory is ${OUTPUT_DIR}/."
+echo "> find ${OUTPUT_DIR} | grep '.out' to find the aux files."
+echo " First names: ${OUTPUT_DIR}/first_names.all.txt."
+echo " Last names: ${OUTPUT_DIR}/last_names.all.txt."
 echo "--------------------------------------------------"
