@@ -8,6 +8,7 @@ mkdir -p ${OUTPUT_DIR}
 rm -rf ${OUTPUT_DIR}
 
 echo "Generating the whole dataset in ${OUTPUT_DIR}/..."
+echo "It takes around 7min on a MacBookPro 2017."
 
 DATASET=MatthiasWinkelmann_firstname-database
 wget -nv https://github.com/MatthiasWinkelmann/firstname-database/raw/master/firstnames.csv -P ${OUTPUT_DIR}/${DATASET}/
@@ -88,7 +89,7 @@ wget -nv https://www.nrscotland.gov.uk/files//statistics/babies-first-names-full
 wget -nv https://www.nrscotland.gov.uk/files//statistics/babies-first-names-full-list/2010-2019/babies-first-names-2013.csv -P ${OUTPUT_DIR}/${DATASET}
 wget -nv https://www.nrscotland.gov.uk/files//statistics/babies-first-names-full-list/2010-2019/babies-first-names-2014.csv -P ${OUTPUT_DIR}/${DATASET}
 wget -nv https://www.nrscotland.gov.uk/files//statistics/babies-first-names-full-list/2010-2019/babies-first-names-2015.csv -P ${OUTPUT_DIR}/${DATASET}
-bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
+export LC_ALL=C; bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
 
 DATASET=www2.census.gov.1990surnames
 wget -nv https://www2.census.gov/topics/genealogy/1990surnames/dist.all.last -P ${OUTPUT_DIR}/${DATASET}
@@ -98,4 +99,5 @@ bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
 #wget -nv https://raw.githubusercontent.com/smashew/NameDatabases/master/NamesDatabases/first%20names/us.txt -P ${OUTPUT_DIR}/${DATASET}
 #wget -nv https://static1.squarespace.com/static/588c1f531e5b6c553fe26beb/t/59e8fd7d017db27f7ad2ef7a/1508441525530/F104B59A-C180-4DD1-982B-99A536ACA55F.jpeg-P ${OUTPUT_DIR}/${DATASET}
 
+echo "Done."
 
