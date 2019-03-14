@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Generating the whole dataset..."
-
 set -e
 
 OUTPUT_DIR=output
@@ -9,6 +7,7 @@ OUTPUT_DIR=output
 mkdir -p ${OUTPUT_DIR}
 rm -rf ${OUTPUT_DIR}
 
+echo "Generating the whole dataset in ${OUTPUT_DIR}/..."
 
 DATASET=MatthiasWinkelmann_firstname-database
 wget -nv https://github.com/MatthiasWinkelmann/firstname-database/raw/master/firstnames.csv -P ${OUTPUT_DIR}/${DATASET}/
