@@ -101,5 +101,7 @@ bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
 #wget -nv https://raw.githubusercontent.com/smashew/NameDatabases/master/NamesDatabases/first%20names/us.txt -P ${OUTPUT_DIR}/${DATASET}
 #wget -nv https://static1.squarespace.com/static/588c1f531e5b6c553fe26beb/t/59e8fd7d017db27f7ad2ef7a/1508441525530/F104B59A-C180-4DD1-982B-99A536ACA55F.jpeg-P ${OUTPUT_DIR}/${DATASET}
 
-echo "Done."
-
+echo "--------------------------------------------------"
+echo "Done. Output directory is ${OUTPUT_DIR}/"
+echo "> find ${OUTPUT_DIR} | grep '.out'"
+echo "--------------------------------------------------"
