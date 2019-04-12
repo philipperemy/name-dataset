@@ -2,6 +2,7 @@
 
 set -e
 
+export LC_CTYPE=C
 OUTPUT_DIR=output
 
 mkdir -p ${OUTPUT_DIR}
