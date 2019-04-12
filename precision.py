@@ -30,7 +30,8 @@ if __name__ == '__main__':
         o = np.zeros(total)
         for i, n in enumerate(names):
             o[i] = func(n)
-        print(f'Precision = {np.mean(o)}')
+        fp = np.mean(o)
+        print('False Positive Rate = {} (1 = worst, 0 = best).'.format(fp))
 
 
     compute_precision(m.search_first_name)

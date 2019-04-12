@@ -16,12 +16,12 @@ DATASET=MatthiasWinkelmann_firstname-database
 wget -nv https://github.com/MatthiasWinkelmann/firstname-database/raw/master/firstnames.csv -P ${OUTPUT_DIR}/${DATASET}/
 bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
 
-DATASET=cs.cmu.edu.ai-repository
-wget -nv http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/female.txt -P ${OUTPUT_DIR}/${DATASET}
-wget -nv http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/male.txt -P ${OUTPUT_DIR}/${DATASET}
-wget -nv http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/other/family.txt -P ${OUTPUT_DIR}/${DATASET}
-wget -nv http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/other/names.txt -P ${OUTPUT_DIR}/${DATASET}
-bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
+#DATASET=cs.cmu.edu.ai-repository
+#wget -nv http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/female.txt -P ${OUTPUT_DIR}/${DATASET}
+#wget -nv http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/male.txt -P ${OUTPUT_DIR}/${DATASET}
+#wget -nv http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/other/family.txt -P ${OUTPUT_DIR}/${DATASET}
+#wget -nv http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/areas/nlp/corpora/names/other/names.txt -P ${OUTPUT_DIR}/${DATASET}
+#bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
 
 DATASET=yorkshiretwist
 wget -nv https://raw.githubusercontent.com/yorkshiretwist/WTester/master/WTester/Helpers/CSV_Database_of_First_Names.csv -P ${OUTPUT_DIR}/${DATASET}
@@ -34,10 +34,10 @@ DATASET=github_hadley_data-baby-names
 wget -nv https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv -P ${OUTPUT_DIR}/${DATASET}
 bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
 
-DATASET=datasets_imdb
-wget -nv https://datasets.imdbws.com/name.basics.tsv.gz -P ${OUTPUT_DIR}/${DATASET}
-gunzip ${OUTPUT_DIR}/${DATASET}/*
-bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
+#DATASET=datasets_imdb
+#wget -nv https://datasets.imdbws.com/name.basics.tsv.gz -P ${OUTPUT_DIR}/${DATASET}
+#gunzip ${OUTPUT_DIR}/${DATASET}/*
+#bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
 
 DATASET=github_com_dominictarr_random-name
 wget -nv https://raw.githubusercontent.com/dominictarr/random-name/master/names.txt -P ${OUTPUT_DIR}/${DATASET}
