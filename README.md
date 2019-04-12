@@ -3,7 +3,7 @@
 The biggest dataset of Names, worldwide. All the countries supported.
 
 - ~200k first names
-- ~220k last names
+- ~110k last names
 
 ## Installation
 ```
