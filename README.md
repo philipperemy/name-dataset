@@ -18,6 +18,12 @@ m.search_first_name('Brian')
 m.search_last_name('Remy')
 ```
 
+```
+echo -e "$(python main.py 'Brian is in the kitchen while Amanda is watching the TV on the sofa.\nThey are both waiting for Alfred to come.')"
+```
+
+<img src='misc/img_1.png'/>
+
 ## Sources and References
 
 - Generator: http://listofrandomnames.com/index.cfm?generated
