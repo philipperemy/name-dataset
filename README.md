@@ -1,6 +1,6 @@
 # First and Last Names Dataset
 
-The biggest dataset of Names, worldwide. All the countries supported.
+Attempt to make a good dataset with a high precision / recall.
 
 - ~200k first names
 - ~110k last names
