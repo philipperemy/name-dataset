@@ -17,7 +17,10 @@ def write_dict_file(filename, dicts):
 def main():
     a = read_dict_file(sys.argv[1])
     b = read_dict_file(sys.argv[2])
-    c = sorted(set(a) - set(b))
+    if sys.argv[4] == '-':
+        c = sorted(set(a) - set(b))
+    else:
+        c = sorted(set(a).union(set(b)))
     write_dict_file(sys.argv[3], c)
 
 

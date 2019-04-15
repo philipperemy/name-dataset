@@ -1,12 +1,14 @@
-import subprocess
-
 from evaluate import read_dict_file
 from names_dataset import NameDataset
-
+import os
+import sys
 
 def main():
     m = NameDataset()
-    words = read_dict_file('generation/example_text.txt')
+    if os.path.isfile(sys.argv[1]):
+        words = read_dict_file('generation/example_text.txt')
+    else:
+        words = [sys.argv[1]]
     words = ' '.join(words).replace('.', ' ').replace('?', ' ').split(' ')  # cheap word tokenizer.
     output = ''
     for word in words:
@@ -18,7 +20,6 @@ def main():
             output += word
         output += ' '
     print(output)
-    subprocess.check_output(f'echo -e "{output}"', shell=True)
 
 
 if __name__ == '__main__':

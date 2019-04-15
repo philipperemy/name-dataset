@@ -114,5 +114,8 @@ echo " Last names: ${OUTPUT_DIR}/last_names.all.txt."
 echo "--------------------------------------------------"
 
 
-# python diff.py ../names_dataset/last_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ../names_dataset/last_names.all.txt
-# python diff.py ../names_dataset/first_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ../names_dataset/first_names.all.txt
+# python diff.py ${OUTPUT_DIR}/last_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ../names_dataset/last_names.all.txt
+# python diff.py ${OUTPUT_DIR}/first_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ../names_dataset/first_names.all.txt
+
+# python diff.py ${OUTPUT_DIR}/first_names.all.txt ../eng_dictionary/names-from-forbes-wp_users.txt ../names_dataset/first_names.all.txt +
+# python diff.py ${OUTPUT_DIR}/last_names.all.txt ../eng_dictionary/names-from-forbes-wp_users.txt ../names_dataset/last_names.all.txt +
