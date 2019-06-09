@@ -103,8 +103,8 @@ bash scripts/${DATASET}/transform.sh ${OUTPUT_DIR}/${DATASET}/
 #wget -nv --read-timeout=30 --tries=3 --waitretry=5 https://static1.squarespace.com/static/588c1f531e5b6c553fe26beb/t/59e8fd7d017db27f7ad2ef7a/1508441525530/F104B59A-C180-4DD1-982B-99A536ACA55F.jpeg-P ${OUTPUT_DIR}/${DATASET}
 
 echo "Generating the first and last names files"
-export LC_CTYPE=C; find ${OUTPUT_DIR} -name '*irst*.out' -print0 | xargs -0 cat | awk '{print tolower($0)}' | awk '{$1=$1};1' | sort | uniq > ${OUTPUT_DIR}/first_names.all.txt
-export LC_CTYPE=C; find ${OUTPUT_DIR} -name '*last*.out' -print0 | xargs -0 cat | awk '{print tolower($0)}' | awk '{$1=$1};1' | sort | uniq > ${OUTPUT_DIR}/last_names.all.txt
+export LC_CTYPE=C; find ${OUTPUT_DIR} -name '*irst*.out' -print0 | xargs -0 cat | awk '{print tolower($0)}' | awk '{$1=$1};1' | grep -v '@' | grep -v '"' | grep -v '\.' | grep -v '+' | sort | uniq > ${OUTPUT_DIR}/first_names.all.txt
+export LC_CTYPE=C; find ${OUTPUT_DIR} -name '*last*.out' -print0 | xargs -0 cat | awk '{print tolower($0)}' | awk '{$1=$1};1' | grep -v '@' | grep -v '"' | grep -v '\.' | grep -v '+' | sort | uniq > ${OUTPUT_DIR}/last_names.all.txt
 
 python diff.py ${OUTPUT_DIR}/last_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ${OUTPUT_DIR}/last_names.all.txt -
 python diff.py ${OUTPUT_DIR}/first_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ${OUTPUT_DIR}/first_names.all.txt -
