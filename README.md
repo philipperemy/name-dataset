@@ -2,8 +2,8 @@
 
 Attempt to make a good dataset with a high precision / recall.
 
-- ~200k first names
-- ~110k last names
+- ~160k first names
+- ~100k last names
 
 ## Installation
 ```
@@ -14,7 +14,7 @@ pip install names-dataset
 ```python
 from names_dataset import NameDataset
 m = NameDataset()
-m.search_first_name('Brian')
+m.search_first_name('Mikael')
 m.search_last_name('Remy')
 ```
 
