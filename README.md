@@ -2,8 +2,8 @@
 
 Attempt to make a good dataset with a high precision / recall.
 
-- ~200k first names
-- ~110k last names
+- ~160k first names
+- ~100k last names
 
 ## Installation
 ```
