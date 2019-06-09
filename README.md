@@ -26,6 +26,8 @@ echo -e "$(python main.py 'Brian is in the kitchen while Amanda is watching the 
 
 ## Sources and References
 
+Exhaustive list of all the possible websites. Not all are used since there is a lot of garbage in the lists.
+
 - Generator: http://listofrandomnames.com/index.cfm?generated
 - https://www.sajari.com/public-data: 5000 names (First Names CSV)
 - http://www.20000-names.com/ names around the world
