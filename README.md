@@ -14,7 +14,7 @@ pip install names-dataset
 ```python
 from names_dataset import NameDataset
 m = NameDataset()
-m.search_first_name('Brian')
+m.search_first_name('Mikael')
 m.search_last_name('Remy')
 ```
 
