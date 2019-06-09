@@ -106,8 +106,8 @@ echo "Generating the first and last names files"
 export LC_CTYPE=C; find ${OUTPUT_DIR} -name '*irst*.out' -print0 | xargs -0 cat | awk '{print tolower($0)}' | awk '{$1=$1};1' | sort | uniq > ${OUTPUT_DIR}/first_names.all.txt
 export LC_CTYPE=C; find ${OUTPUT_DIR} -name '*last*.out' -print0 | xargs -0 cat | awk '{print tolower($0)}' | awk '{$1=$1};1' | sort | uniq > ${OUTPUT_DIR}/last_names.all.txt
 
-python diff.py ${OUTPUT_DIR}/last_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ../names_dataset/last_names.all.txt -
-python diff.py ${OUTPUT_DIR}/first_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ../names_dataset/first_names.all.txt -
+python diff.py ${OUTPUT_DIR}/last_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ${OUTPUT_DIR}/last_names.all.txt -
+python diff.py ${OUTPUT_DIR}/first_names.all.txt ../eng_dictionary/google-10000-english-no-names.txt ${OUTPUT_DIR}/first_names.all.txt -
 
 echo "--------------------------------------------------"
 echo "Done. Output directory is ${OUTPUT_DIR}/."
@@ -116,5 +116,3 @@ echo " First names: ${OUTPUT_DIR}/first_names.all.txt."
 echo " Last names: ${OUTPUT_DIR}/last_names.all.txt."
 echo "--------------------------------------------------"
 
-# python diff.py ${OUTPUT_DIR}/first_names.all.txt ../eng_dictionary/names-from-forbes-wp_users.txt ../names_dataset/first_names.all.txt +
-# python diff.py ${OUTPUT_DIR}/last_names.all.txt ../eng_dictionary/names-from-forbes-wp_users.txt ../names_dataset/last_names.all.txt +
