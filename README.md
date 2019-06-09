@@ -1,5 +1,8 @@
 # First and Last Names Dataset
 
+[![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
+[![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
+
 Attempt to make a good dataset with a high precision / recall.
 
 - ~160k first names
