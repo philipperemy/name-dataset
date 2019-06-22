@@ -35,6 +35,14 @@ Here is an example on a (old) text: [ALI BABA AND THE FORTY THIEVES](http://text
 
 <img src='misc/img_2.png'/>
 
+## License
+
+I don't own the data obviously. It's fetched from the websites listed in:
+
+https://github.com/philipperemy/name-dataset/blob/master/generation/generate.sh
+
+So I guess the most strict software license should apply here.
+
 ## Sources and References
 
 Exhaustive list of all the possible websites. Not all are used since there is a lot of garbage in the lists.
