@@ -35,6 +35,8 @@ Here is an example on a (old) text: [ALI BABA AND THE FORTY THIEVES](http://text
 
 <img src='misc/img_2.png'/>
 
+A more reliable source would be to scrape this website: http://www.namepedia.org/. This database has probably been manually checked and contains more information such as gender and origin of the names.
+
 ## License
 
 I don't own the data obviously. It's fetched from the websites listed in:
