@@ -1,9 +1,15 @@
 import os
 
 
+def _query(search_set, key, use_upper_case):
+    if use_upper_case and key.title() != key:
+        return False
+    return key.strip().lower() in search_set
+
+
 class NameDataset:
-    FIRST_NAME_SEARCH = 'FIRST_NAME_SEARCH'
-    LAST_NAME_SEARCH = 'LAST_NAME_SEARCH'
+    FIRST_NAME_SEARCH = 0
+    LAST_NAME_SEARCH = 1
 
     def __init__(self):
         first_names_filename = os.path.join(os.path.dirname(__file__), 'first_names.all.txt')
@@ -13,15 +19,11 @@ class NameDataset:
         with open(last_names_filename, 'r', errors='ignore', encoding='utf8') as r:
             self.last_names = set(r.read().strip().split('\n'))
 
-    def _search_name(self, name, name_type):
-        names = self.first_names if name_type == NameDataset.FIRST_NAME_SEARCH else self.last_names
-        return name.strip().lower() in names
+    def search_first_name(self, first_name, use_upper_case=False):
+        return _query(self.first_names, first_name, use_upper_case)
 
-    def search_first_name(self, first_name):
-        return self._search_name(first_name, name_type=NameDataset.FIRST_NAME_SEARCH)
-
-    def search_last_name(self, last_name):
-        return self._search_name(last_name, name_type=NameDataset.LAST_NAME_SEARCH)
+    def search_last_name(self, last_name, use_upper_case=False):
+        return _query(self.last_names, last_name, use_upper_case)
 
 
 if __name__ == '__main__':

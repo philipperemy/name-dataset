@@ -9,7 +9,7 @@ from names_dataset import NameDataset
 
 def read_dict_file(filename):
     with open(filename, 'r', encoding='utf8') as r:
-        lines = r.read().strip().lower().split('\n')
+        lines = r.read().strip().split('\n')
     return lines
 
 
