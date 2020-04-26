@@ -1,5 +1,3 @@
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
-
 from names_dataset import NameDataset
 
 
@@ -36,6 +34,7 @@ def main():
         predictions.append(m.search_first_name(q))
         targets.append(False)
 
+    from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
     print('P', precision_score(y_true=targets, y_pred=predictions))
     print('R', recall_score(y_true=targets, y_pred=predictions))
     print('F', f1_score(y_true=targets, y_pred=predictions))
