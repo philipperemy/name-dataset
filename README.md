@@ -43,7 +43,7 @@ I don't own the data obviously. It's fetched from the websites listed in:
 
 https://github.com/philipperemy/name-dataset/blob/master/generation/generate.sh
 
-So I guess the most strict software license should apply here.
+Lists of names are [not copyrightable](https://www.justia.com/intellectual-property/copyright/lists-directories-and-databases/), generally speaking, but if you want to be sure you should talk to a lawyer.
 
 ## Sources and References
 
