@@ -9264,6 +9264,7 @@ aniyaha
 aniyahlee
 aniyan
 aniye
+aniyereth
 aniyha
 aniyia
 aniyiah
@@ -20226,6 +20227,7 @@ bonno
 bonns
 bonny
 bonnye
+bonnys
 bono
 bonsal
 bonsell
@@ -36494,6 +36496,8 @@ degenhart
 degennaro
 degerald
 degges
+deglis
+deglys
 degmo
 degnan
 degolier
@@ -39746,6 +39750,7 @@ dimia
 dimilta
 dimingo
 diminic
+diminson
 dimitar
 dimitilde
 dimitra
@@ -40053,6 +40058,7 @@ disheka
 disher
 dishita
 dishman
+dishmer
 dishmon
 dishon
 dishti
@@ -40170,6 +40176,7 @@ dixielee
 dixielynn
 dixil
 dixin
+dixner
 dixon
 dixson
 dixxon
@@ -43338,6 +43345,7 @@ edin
 edina
 edinaud
 edine
+edingally
 edinger
 edington
 edinson
@@ -51095,6 +51103,7 @@ flewellen
 flewellyn
 flicia
 flieger
+fligser
 flin
 flinn
 flint
@@ -55026,6 +55035,7 @@ gieuvious
 gieze
 giezentanner
 giezi
+giezzi
 giff
 giffard
 giffer
@@ -95687,6 +95697,7 @@ luli
 lulia
 lulie
 lulita
+lulitza
 luljeta
 lull
 lulla
@@ -99902,6 +99913,7 @@ margette
 margetts
 margeurite
 margey
+marggarittha
 marggie
 margheoala
 margherita
@@ -110120,6 +110132,8 @@ nagamany
 nagamuthu
 nagan
 nagarajah
+nagdali
+nagdaly
 nagee
 nageena
 nagehan
@@ -112998,6 +113012,7 @@ nibras
 nic
 nica
 nicaela
+nicailus
 nicala
 nicandro
 nicanor
@@ -115756,6 +115771,7 @@ oidhche
 oier
 oihana
 oihane
+oilda
 oiler
 oili
 oilla
@@ -129053,6 +129069,7 @@ rosemary
 rosemay
 rosembert
 rosemellia
+rosemeri
 rosemery
 rosemie
 rosemin
@@ -158638,10 +158655,13 @@ xaiver
 xaivier
 xaivion
 xaiya
+xajamaia
 xakaria
 xalen
 xalia
 xally
+xamanta
+xamantha
 xamara
 xamir
 xamira
@@ -160531,6 +160551,7 @@ yoriko
 yorisane
 yorke
 yorker
+yorkis
 yorkjr
 yorlei
 yorleni
@@ -161006,6 +161027,8 @@ yuriy
 yursa
 yurt
 yury
+yuryeimi
+yuryeimy
 yusaf
 yusairah
 yusaku
@@ -163852,6 +163875,7 @@ zyrion
 zyriyah
 zyrjeta
 zyron
+zyruma
 zyrus
 zysean
 zyshaun
