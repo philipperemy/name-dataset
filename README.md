@@ -35,7 +35,13 @@ print(m.search_first_name('Dog')) # False
 
 The V1 returns `True`/`False`.
 
-The V2 returns a score between 0 and 1 to control for the precision and the recall.
+The V2 returns a score between 0.0 and 100.0 to control for the precision and the recall.
+
+```python
+m.search_first_name('<name here>') > 50 # will only return you the VERY VERY COMMON names like Joe.
+```
+
+You can adjust the threshold based on this table:
 
 | Threshold | Top First names | Top Second names |
 |-----------|-----------------|------------------|
@@ -46,7 +52,7 @@ The V2 returns a score between 0 and 1 to control for the precision and the reca
 | 0.001     | 1455485         | 3327665          |
 | 0         | 1642641         | 3479437          |
 
-If you want to match roughly the same number of names as the V2, set the threshold to 0.15 for first names and 1.0 for last names.
+If you want to match roughly the same number of names as in the V1, set the threshold to 0.15 for first names and 1.0 for last names.
 
 ```
 echo -e "$(python main.py 'Brian is in the kitchen while Amanda is watching the TV on the sofa.\nThey are both waiting for Alfred to come.')"
