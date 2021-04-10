@@ -1,10 +1,13 @@
-import os
+from pathlib import Path
 
 from setuptools import setup, find_packages
 
-VERSION = '1.9.1'
+VERSION = '2.0.1'
 
-package_name = find_packages()[0]
+packages = find_packages()
+package_name = packages[0]
+data_files = list(Path(package_name).glob('**/*.txt')) + list(Path(package_name).glob('**/*.zip'))
+data_files = [str(d) for d in data_files]
 
 setup(
     name='names-dataset',
@@ -14,8 +17,5 @@ setup(
     license='MIT',
     packages=[package_name],
     include_package_data=True,
-    data_files=[(package_name, [
-        os.path.join(package_name, 'first_names.all.txt'),
-        os.path.join(package_name, 'last_names.all.txt')
-    ])]
+    data_files=[(package_name, data_files)]
 )
