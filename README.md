@@ -59,6 +59,10 @@ echo -e "$(python main.py 'Brian is in the kitchen while Amanda is watching the 
 ```
 *Note*: The V2 lib takes time to init (the database is massive).
 
+## Countries supported (V2)
+
+Afghanistan, Albania, Algeria, Angola, Argentina, Austria, Azerbaijan, Bahrain, Bangladesh, Belgium, Bolivia, Botswana, Brazil, Brunei, Bulgaria, Burkina_Faso, Burundi, Cambodia, Cameroon, Canada, Chile, China, Colombia, Costa_Rica, Croatia, Cyprus, Czech_Republic, Denmark, Djibouti, Ecuador, Egypt, El_Salvador, Estonia, Ethiopia, Fiji, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Haiti, Honduras, Hong_Kong, Hungary, Iceland, India, Indonesia, Iran, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kuwait, Lebanon, Libya, Lithuania, Luxemburg, Macao, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Morocco, Namibia, Netherlands, Nigeria, Norway, Oman, Palestine, Panama, Peru, Philippines, Poland, Portugal, Puerto_Rico, Qatar, Russia, Saudi_Arabia, Serbia, Singapore, Slovenia, South_Africa, South_Korea, Spain, Sudan, Sweden, Switzerland, Syria, Taiwan, Tunisia, Turkey, Turkmenistan, Uae, Uk, Uruguay, Usa, Yemen.
+
 ## How reliable is it?
 
 Well, it depends if you are looking for a high recall or a high precision. For example, the word Rose can be either a name or a noun. If we include it in the list, then we increase the recall but we decrease the precision. And vice versa, if it's not in the list. The library checks that the word starts with a capital letter. In our case, we emphasize more on precision. So I would say the best use case here is to check whether it's a name or not based on a prior knowledge that the customer has submitted a name. If you are using this tool to look for name entities in the text, then be prepared to have a lot of false positives.
