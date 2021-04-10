@@ -3,18 +3,25 @@
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
-From the Facebook Massive Data Leak.
+This module is useful when you have a name and you want to check if it looks like a legit name. If you have the full text and you want to find where the names are, it is probably better to use a [NER library like the Stanford one](https://nlp.stanford.edu/software/CRF-NER.html).
+
+*Composition:*
 
 - v1: ~160K first names, ~100K last names - from IMDB, Names databases scraped from internet.
 - v2: ~1.6M first names, 3.5M last names - from the [Facebook massive dump (533M users)](https://www.theguardian.com/technology/2021/apr/03/500-million-facebook-users-website-hackers).
 
 
 ## Installation
+
+PyPI
 ```
 pip install names-dataset
 ```
 
 ## Usage
+
+Once it's installed, run those commands to familiarize yourself with the library:
+
 ```python
 from names_dataset import NameDataset
 from names_dataset import NameDatasetV1
@@ -60,15 +67,12 @@ echo -e "$(python main.py 'Brian is in the kitchen while Amanda is watching the 
 ```
 *Note*: The V2 lib takes time to init (the database is massive).
 
+You can also see if the name is more likely to be a first than a last name by comparing the two scores.
+
 ## 105 Countries supported in the V2
 
 Afghanistan, Albania, Algeria, Angola, Argentina, Austria, Azerbaijan, Bahrain, Bangladesh, Belgium, Bolivia, Botswana, Brazil, Brunei, Bulgaria, Burkina_Faso, Burundi, Cambodia, Cameroon, Canada, Chile, China, Colombia, Costa_Rica, Croatia, Cyprus, Czech_Republic, Denmark, Djibouti, Ecuador, Egypt, El_Salvador, Estonia, Ethiopia, Fiji, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Haiti, Honduras, Hong_Kong, Hungary, Iceland, India, Indonesia, Iran, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kuwait, Lebanon, Libya, Lithuania, Luxemburg, Macao, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Morocco, Namibia, Netherlands, Nigeria, Norway, Oman, Palestine, Panama, Peru, Philippines, Poland, Portugal, Puerto_Rico, Qatar, Russia, Saudi_Arabia, Serbia, Singapore, Slovenia, South_Africa, South_Korea, Spain, Sudan, Sweden, Switzerland, Syria, Taiwan, Tunisia, Turkey, Turkmenistan, Uae, Uk, Uruguay, Usa, Yemen.
 
-## How reliable is it?
-
-Well, it depends if you are looking for a high recall or a high precision. For example, the word Rose can be either a name or a noun. If we include it in the list, then we increase the recall but we decrease the precision. And vice versa, if it's not in the list. The library checks that the word starts with a capital letter. In our case, we emphasize more on precision. So I would say the best use case here is to check whether it's a name or not based on a prior knowledge that the customer has submitted a name. If you are using this tool to look for name entities in the text, then be prepared to have a lot of false positives.
-
-A more reliable source would be to scrape this website: [namepedia](http://www.namepedia.org/). This database has probably been manually checked and contains more information such as gender and origin of the names.
 
 ## License
 
