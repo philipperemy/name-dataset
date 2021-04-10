@@ -16,7 +16,7 @@ If you have the full text and you want to find where the names are, it is probab
 ## Installation
 
 *PyPI*
-```
+```bash
 pip install names-dataset
 ```
 
