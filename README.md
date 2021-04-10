@@ -76,3 +76,15 @@ For the V2, it's fetched from the massive Facebook Leak (533M accounts).
 
 Lists of names are [not copyrightable](https://www.justia.com/intellectual-property/copyright/lists-directories-and-databases/), generally speaking, but if you want to be completely sure you should talk to a lawyer.
 
+## Citation
+
+```
+@misc{NameDataset2021,
+  author = {Philippe Remy},
+  title = {Name Dataset},
+  year = {2021},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/philipperemy/name-dataset}},
+}
+```
