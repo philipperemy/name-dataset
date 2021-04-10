@@ -14,7 +14,7 @@ pip install names-dataset
 
 ## Usage
 ```python
-from names_dataset import NameDataset # v2
+from names_dataset import NameDataset
 from names_dataset import NameDatasetV1
 
 # v2
