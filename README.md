@@ -3,6 +3,8 @@
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
+From the Facebook Massive Data Leak.
+
 - v1: ~160K first names, ~100K last names - from IMDB, Names databases scraped from internet.
 - v2: ~1.6M first names, 3.5M last names - from the [Facebook massive dump (533M users)](https://www.theguardian.com/technology/2021/apr/03/500-million-facebook-users-website-hackers).
 
@@ -58,7 +60,7 @@ echo -e "$(python main.py 'Brian is in the kitchen while Amanda is watching the 
 ```
 *Note*: The V2 lib takes time to init (the database is massive).
 
-## Countries supported (V2)
+## 105 Countries supported in the V2
 
 Afghanistan, Albania, Algeria, Angola, Argentina, Austria, Azerbaijan, Bahrain, Bangladesh, Belgium, Bolivia, Botswana, Brazil, Brunei, Bulgaria, Burkina_Faso, Burundi, Cambodia, Cameroon, Canada, Chile, China, Colombia, Costa_Rica, Croatia, Cyprus, Czech_Republic, Denmark, Djibouti, Ecuador, Egypt, El_Salvador, Estonia, Ethiopia, Fiji, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Haiti, Honduras, Hong_Kong, Hungary, Iceland, India, Indonesia, Iran, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kuwait, Lebanon, Libya, Lithuania, Luxemburg, Macao, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Morocco, Namibia, Netherlands, Nigeria, Norway, Oman, Palestine, Panama, Peru, Philippines, Poland, Portugal, Puerto_Rico, Qatar, Russia, Saudi_Arabia, Serbia, Singapore, Slovenia, South_Africa, South_Korea, Spain, Sudan, Sweden, Switzerland, Syria, Taiwan, Tunisia, Turkey, Turkmenistan, Uae, Uk, Uruguay, Usa, Yemen.
 
@@ -70,11 +72,11 @@ A more reliable source would be to scrape this website: http://www.namepedia.org
 
 ## License
 
-I don't own the data obviously. For the V1, it's fetched from the websites listed in: [generate.sh](https://github.com/philipperemy/name-dataset/blob/master/generation/generate.sh).
+- I don't own the data obviously. For the V1, it's fetched from the websites listed in: [generate.sh](https://github.com/philipperemy/name-dataset/blob/master/generation/generate.sh).
 
-For the V2, it's fetched from the massive Facebook Leak (533M accounts).
+- For the V2, it's fetched from the massive Facebook Leak (533M accounts).
 
-Lists of names are [not copyrightable](https://www.justia.com/intellectual-property/copyright/lists-directories-and-databases/), generally speaking, but if you want to be completely sure you should talk to a lawyer.
+- Lists of names are [not copyrightable](https://www.justia.com/intellectual-property/copyright/lists-directories-and-databases/), generally speaking, but if you want to be completely sure you should talk to a lawyer.
 
 ## Citation
 
