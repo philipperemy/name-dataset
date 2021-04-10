@@ -68,7 +68,7 @@ Afghanistan, Albania, Algeria, Angola, Argentina, Austria, Azerbaijan, Bahrain, 
 
 Well, it depends if you are looking for a high recall or a high precision. For example, the word Rose can be either a name or a noun. If we include it in the list, then we increase the recall but we decrease the precision. And vice versa, if it's not in the list. The library checks that the word starts with a capital letter. In our case, we emphasize more on precision. So I would say the best use case here is to check whether it's a name or not based on a prior knowledge that the customer has submitted a name. If you are using this tool to look for name entities in the text, then be prepared to have a lot of false positives.
 
-A more reliable source would be to scrape this website: http://www.namepedia.org/. This database has probably been manually checked and contains more information such as gender and origin of the names.
+A more reliable source would be to scrape this website: [namepedia](http://www.namepedia.org/). This database has probably been manually checked and contains more information such as gender and origin of the names.
 
 ## License
 
