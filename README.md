@@ -43,15 +43,14 @@ print(m.search_last_name('Remy')) # True
 print(m.search_first_name('Dog')) # False
 ```
 
-The V1 returns `True`/`False`.
-
-The V2 returns a score between 0.0 and 100.0 to control for the precision and the recall.
-
+- The V1 returns `True`/`False`.
+- The V2 returns a score between 0.0 and 100.0 to control for the precision and the recall.
+- You can find a suitable threshold to detect if a word is a name or not:
 ```python
 m.search_first_name('<name here>') > 50 # will only return you the VERY VERY COMMON names like Joe.
 ```
 
-You can adjust the threshold based on this table:
+- You can adjust the threshold based on this table:
 
 | Threshold | Top First names | Top Second names |
 |-----------|-----------------|------------------|
@@ -62,14 +61,14 @@ You can adjust the threshold based on this table:
 | 0.001     | 1455485         | 3327665          |
 | 0         | 1642641         | 3479437          |
 
-If you want to match roughly the same number of names as in the V1, set the threshold to 0.15 for first names and 1.0 for last names.
+- If you want to match roughly the same number of names as in the V1, set the threshold to 0.15 for first names and 1.0 for last names.
 
 ```
 echo -e "$(python main.py 'Brian is in the kitchen while Amanda is watching the TV on the sofa.\nThey are both waiting for Alfred to come.')"
 ```
 *Note*: The V2 lib takes time to init (the database is massive).
 
-You can also see if any name is more likely to be a first name, than a last name, by comparing the two scores.
+- You can also see if any name is more likely to be a first name, than a last name, by comparing the two scores.
 
 ## 105 Countries supported in the V2
 
