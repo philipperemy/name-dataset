@@ -61,9 +61,7 @@ A more reliable source would be to scrape this website: http://www.namepedia.org
 
 ## License
 
-I don't own the data obviously. For the V1, it's fetched from the websites listed in:
-
-https://github.com/philipperemy/name-dataset/blob/master/generation/generate.sh
+I don't own the data obviously. For the V1, it's fetched from the websites listed in: [generate.sh](https://github.com/philipperemy/name-dataset/blob/master/generation/generate.sh).
 
 For the V2, it's fetched from the massive Facebook Leak (533M accounts).
 
