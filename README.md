@@ -29,7 +29,7 @@ from names_dataset import NameDataset
 from names_dataset import NameDatasetV1
 
 # v2
-m = NameDataset()
+m = NameDataset() # init it only once in your app because the V2 takes much more time to init than the V1.
 print(m.search_first_name('محمد')) # 100.0
 print(m.search_first_name('영수')) # 88.803089
 print(m.search_first_name('Joe')) # 45.238095
