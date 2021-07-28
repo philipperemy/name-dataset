@@ -53,7 +53,7 @@ print(m.search_first_name('Dog')) # False
 m.search_first_name('Joe') > 1 # will only return the VERY VERY COMMON names like "Joe" or "Anna".
 # True
 ```
-- You can adjust the threshold based on this table:
+- You can adjust the threshold based on this table (If you want to match roughly the same number of names as in the V1, set the threshold to 0.15 for first names and 1.0 for last names):
 
 | Threshold | Top First names | Top Second names |
 |-----------|-----------------|------------------|
@@ -63,10 +63,7 @@ m.search_first_name('Joe') > 1 # will only return the VERY VERY COMMON names lik
 | 0.01      | 671110          | 2068468          |
 | 0.001     | 1455485         | 3327665          |
 | 0         | 1642641         | 3479437          |
-- If you want to match roughly the same number of names as in the V1, set the threshold to 0.15 for first names and 1.0 for last names.
-```
-echo -e "$(python main.py 'Brian is in the kitchen while Amanda is watching the TV on the sofa.\nThey are both waiting for Alfred to come.')"
-```
+
 *Note*: The V2 lib takes time to init (the database is massive).
 - You can also see if any name is more likely to be a first name, than a last name, by comparing the two scores:
 
