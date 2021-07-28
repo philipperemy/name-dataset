@@ -9,8 +9,8 @@ If you have the full text and you want to find where the names are, it is probab
 
 *Composition:*
 
-- v1: 160K first names, 100K last names - from IMDB, Names databases scraped from internet.
-- v2: 1.6M first names, 3.5M last names - from the [Facebook massive dump (533M users)](https://www.theguardian.com/technology/2021/apr/03/500-million-facebook-users-website-hackers).
+- v1 (2018): 160K first names, 100K last names - from IMDB, Names databases scraped from internet.
+- v2 (2021): 1.6M first names, 3.5M last names - from the [Facebook massive dump (533M users)](https://www.theguardian.com/technology/2021/apr/03/500-million-facebook-users-website-hackers).
 
 
 ## Installation
@@ -25,11 +25,13 @@ pip install names-dataset
 Once it's installed, run those commands to familiarize yourself with the library:
 
 ```python
-from names_dataset import NameDataset
-from names_dataset import NameDatasetV1
+from names_dataset import NameDataset # v2
+from names_dataset import NameDatasetV1 # v1
 
 # v2
 m = NameDataset() # init it only once in your app because the V2 takes much more time to init than the V1.
+# The scores are calculated based on the frequencies of the names for a given country. For example, the 
+# most popular first name in Morocco is Mohamed so Mohamed will have a score of 100.
 print(m.search_first_name('محمد')) # 100.0
 print(m.search_first_name('영수')) # 88.803089
 print(m.search_first_name('Joe')) # 45.238095
@@ -37,6 +39,7 @@ print(m.search_last_name('Remy')) # 11.282479
 print(m.search_first_name('Dog')) # 0.0
 
 # v1
+# V1 does not give any score. Just a True or False.
 m = NameDatasetV1()
 print(m.search_first_name('Joe')) # True
 print(m.search_last_name('Remy')) # True
