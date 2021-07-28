@@ -29,6 +29,7 @@ from names_dataset import NameDataset # v2
 from names_dataset import NameDatasetV1 # v1
 
 # v2
+# The V2 lib takes time to init (the database is massive).
 m = NameDataset() # init it only once in your app because the V2 takes much more time to init than the V1.
 # The scores are calculated based on the frequencies of the names for a given country. For example, the 
 # most popular first name in Morocco is Mohamed so Mohamed will have a score of 100.
@@ -64,7 +65,6 @@ m.search_first_name('Joe') > 1 # will only return the VERY VERY COMMON names lik
 | 0.001     | 1455485         | 3327665          |
 | 0         | 1642641         | 3479437          |
 
-*Note*: The V2 lib takes time to init (the database is massive).
 - You can also see if any name is more likely to be a first name, than a last name, by comparing the two scores:
 
 ```python
