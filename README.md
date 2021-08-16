@@ -72,7 +72,7 @@ print(m.search_first_name('Joe'), m.search_last_name('Joe'))
 # 45.238095 9.226714
 ```
 
-- If you are interested to know the country of a given name, you can have a look here: [WIP](https://github.com/philipperemy/name-dataset/issues/14).
+- If you are interested to know the country of a given name, you can have a look here: [WIP-14](https://github.com/philipperemy/name-dataset/issues/14).
 
 ## 105 Countries supported in the V2
 
