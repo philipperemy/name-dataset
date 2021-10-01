@@ -37,7 +37,6 @@ class NameDataset:
 
                 return names
 
-
     def search_first_name(self, first_name, use_upper_case=False):
         return _query(self.first_names, first_name, use_upper_case)
 
