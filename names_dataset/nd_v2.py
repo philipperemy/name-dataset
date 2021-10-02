@@ -15,20 +15,26 @@ def _query(search_set, key, use_upper_case):
 
 class NameDataset:
 
-    def __init__(self):
+    def __init__(self, threshold=0.0):
         first_names_filename = Path(os.path.dirname(__file__)) / 'v2/first_names.zip'
         last_names_filename = Path(os.path.dirname(__file__)) / 'v2/last_names.zip'
-        self.first_names = self._read_names_from_zip(first_names_filename)
-        self.last_names = self._read_names_from_zip(last_names_filename)
+        self.first_names = self._read_names_from_zip(first_names_filename, threshold)
+        self.last_names = self._read_names_from_zip(last_names_filename, threshold)
 
     @staticmethod
-    def _read_names_from_zip(zip_file):
+    def _read_names_from_zip(zip_file, threshold):
         with zipfile.ZipFile(zip_file) as z:
             with z.open(z.filelist[0]) as f:
-                names = f.read().decode('utf8').strip().split('\n')
-                # noinspection PyTypeChecker
-                names = dict([n.split(',') for n in names])
-                names = {k.lower(): float(v) for k, v in names.items()}
+                lines = f.read().decode('utf8').strip().splitlines()
+
+                names = {}
+                for line in lines:
+                    parts = line.split(',')
+                    frequency = float(parts[1])
+                    if frequency < threshold:
+                        break
+                    names[parts[0].lower()] = frequency
+
                 return names
 
     def search_first_name(self, first_name, use_upper_case=False):
