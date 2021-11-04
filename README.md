@@ -72,9 +72,13 @@ print(m.search_first_name('Joe'), m.search_last_name('Joe'))
 # 45.238095 9.226714
 ```
 
+## Gender / Countries
+
 - To find the country for a given name: [WIP-14](https://github.com/philipperemy/name-dataset/issues/14).
 
 - To have the names grouped by country: [WIP-17](https://github.com/philipperemy/name-dataset/issues/17).
+
+- I have uploaded the full dataset containing first, last names along with gender and countries [here](https://drive.google.com/file/d/1wRQfw5EYpzulvRfHCGIUWB2am5JUYVGk/view?usp=sharing).
 
 ## 105 Countries supported in the V2
 
