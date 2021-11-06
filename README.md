@@ -3,9 +3,9 @@
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
-This module is useful when you have a name and you want to check if it looks like a legit name. 
+This module is useful when you have a name and you want to check if it looks like a legit name. It also contains information on the country and the gender (cf. to WIP below).
 
-If you have the full text and you want to find where the names are, it is probably better to use a [NER library like the Stanford one](https://nlp.stanford.edu/software/CRF-NER.html).
+If you have the full sentences and want to find where the names are, it is better to use a [NER library like the Stanford one](https://nlp.stanford.edu/software/CRF-NER.html).
 
 *Composition:*
 
