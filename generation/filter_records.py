@@ -13,17 +13,19 @@ def get_script_arguments():
     parser.add_argument('--output_dir', type=Path, required=True)
     parser.add_argument('--trunc_first_names_count', type=int, default=100_000)
     parser.add_argument('--trunc_last_names_count', type=int, default=100_000)
+    parser.add_argument('--max_countries_per_name', type=int, default=5)
     return parser.parse_args()
 
 
-def generate(by_country, gender_by, country_by, trunc_values, output_filename):
+def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_name, output_filename):
     print(f'filter_records: {output_filename}.')
     names_all = {}
     for country_code, names in by_country.items():
         desc_tuples = sorted(names.items(), key=operator.itemgetter(1), reverse=True)
         desc_tuples = desc_tuples[0:trunc_values]
         names_by_country = {
-            a: {**{'gender': gender_by[a] if a in gender_by else {}}, **{'country': country_by[a]},
+            a: {**{'gender': gender_by[a] if a in gender_by else None},
+                **{'country': country_by[a] if a in country_by else None},
                 **{'popularity': {country_code: b}}}
             for a, b in dict(desc_tuples).items()
         }
@@ -35,14 +37,17 @@ def generate(by_country, gender_by, country_by, trunc_values, output_filename):
             names_all[k]['popularity'] = merged_scores
     del names_all['']
 
-    names_all.items()
-
     normalizers = {
         'gender': lambda x: round(x, 3),
         'country': lambda x: round(x, 3),
         'popularity': lambda x: round(x, 6)
     }
     for name, name_info in names_all.items():
+        # truncate to maximum 5 countries. It will later be normalized.
+        name_info['country'] = dict(sorted(
+            name_info['country'].items(),
+            key=operator.itemgetter(1),
+            reverse=True)[0:max_countries_per_name])
         if '' in name_info['gender']:
             del name_info['gender']['']  # only M and F. Discard N/A.
         norm_dict(name_info, apply=normalizers)
@@ -78,13 +83,15 @@ def main():
     # FIRST NAMES.
     generate(
         first_by_country, gender_by_first, country_by_first,
-        args.trunc_first_names_count, args.output_dir / 'first_names.json'
+        args.trunc_first_names_count, args.max_countries_per_name,
+        args.output_dir / 'first_names.json'
     )
 
     # LAST NAMES.
     generate(
         last_by_country, {}, country_by_last,
-        args.trunc_last_names_count, args.output_dir / 'last_names.json'
+        args.trunc_last_names_count, args.max_countries_per_name,
+        args.output_dir / 'last_names.json'
     )
 
 
