@@ -61,14 +61,19 @@ def main():
     country_by_last_file = Path(args.input_dir) / 'country_by_last.json'
     with open(gender_by_first_file) as r:
         gender_by_first = json.load(r)
+    print('1', gender_by_first_file)
     with open(country_by_first_file) as r:
         country_by_first = json.load(r)
+    print('2', country_by_first_file)
     with open(first_by_country_file) as r:
         first_by_country = json.load(r)
+    print('3', first_by_country_file)
     with open(last_by_country_file) as r:
         last_by_country = json.load(r)
+    print('4', last_by_country_file)
     with open(country_by_last_file) as r:
         country_by_last = json.load(r)
+    print('5', country_by_last_file)
 
     # FIRST NAMES.
     generate(
