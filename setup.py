@@ -15,6 +15,7 @@ setup(
     description='Probably the biggest dataset of Names, worldwide',
     author='Philippe Remy',
     license='MIT',
+    install_requires=['pycountry'],
     packages=[package_name],
     include_package_data=True,
     data_files=[(package_name, data_files)]

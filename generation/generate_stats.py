@@ -20,10 +20,15 @@ def get_script_arguments():
     return parser.parse_args()
 
 
-def norm_dict(dic: dict, apply=None):
+def norm_dict(dic: dict, apply=None, keys_to_avoid_norm=None):
+    if keys_to_avoid_norm is None:
+        keys_to_avoid_norm = set()
     for k in dic.keys():
         v = dic[k]
-        scale = sum(v.values())
+        if k in keys_to_avoid_norm:
+            scale = 1
+        else:
+            scale = sum(v.values())
         while True:
             try:
                 if apply is not None:

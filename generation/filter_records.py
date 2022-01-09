@@ -56,7 +56,7 @@ def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_
         }
         if '' in name_info['gender']:
             del name_info['gender']['']  # only M and F. Discard N/A.
-        norm_dict(name_info, apply=normalizers)
+        norm_dict(name_info, apply=normalizers, keys_to_avoid_norm={'popularity'})
 
     with open(output_filename, 'w', encoding='utf8', errors='ignore') as w:
         json.dump(names_all, w, indent=2, ensure_ascii=False, sort_keys=True)
