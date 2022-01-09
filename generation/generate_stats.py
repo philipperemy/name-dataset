@@ -24,10 +24,15 @@ def norm_dict(dic: dict, apply=None):
     for k in dic.keys():
         v = dic[k]
         scale = sum(v.values())
-        if apply is not None:
-            dic[k] = {a: apply[k](b / scale) for a, b in v.items()}
-        else:
-            dic[k] = {a: b / scale for a, b in v.items()}
+        while True:
+            try:
+                if apply is not None:
+                    dic[k] = {a: apply[k](b / scale) for a, b in v.items()}
+                else:
+                    dic[k] = {a: b / scale for a, b in v.items()}
+                break
+            except ZeroDivisionError:
+                scale += 1e-6
 
 
 def main():
