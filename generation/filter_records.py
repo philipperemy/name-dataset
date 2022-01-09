@@ -13,7 +13,7 @@ def get_script_arguments():
     parser.add_argument('--output_dir', type=Path, required=True)
     parser.add_argument('--trunc_first_names_count', type=int, default=100_000)
     parser.add_argument('--trunc_last_names_count', type=int, default=100_000)
-    parser.add_argument('--max_countries_per_name', type=int, default=5)
+    parser.add_argument('--max_countries_per_name', type=int, default=10)
     return parser.parse_args()
 
 
