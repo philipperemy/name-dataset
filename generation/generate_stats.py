@@ -13,9 +13,11 @@ def get_script_arguments():
     parser.add_argument('--input_dir', type=Path, required=True)
     parser.add_argument('--output_dir', type=Path, required=True)
     parser.add_argument('--debug', action='store_true')
-    parser.add_argument('--option', choices=
-    ['gender_by_first', 'first_by_country',
-     'last_by_country', 'country_by_first', 'country_by_last', 'all'],
+    parser.add_argument('--option', choices=[
+        'gender_by_first', 'first_by_country',
+        'last_by_country', 'country_by_first',
+        'country_by_last', 'all'
+    ],
                         required=True)
     return parser.parse_args()
 
