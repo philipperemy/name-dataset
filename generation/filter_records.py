@@ -24,8 +24,8 @@ def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_
         desc_tuples = sorted(names.items(), key=operator.itemgetter(1), reverse=True)
         desc_tuples = desc_tuples[0:trunc_values]
         names_by_country = {
-            a: {**{'gender': gender_by[a] if a in gender_by else None},
-                **{'country': country_by[a] if a in country_by else None},
+            a: {**{'gender': gender_by[a] if a in gender_by else {}},
+                **{'country': country_by[a] if a in country_by else {}},
                 **{'popularity': {country_code: b}}}
             for a, b in dict(desc_tuples).items()
         }
