@@ -12,7 +12,7 @@ data_files = [str(d) for d in data_files]
 setup(
     name='names-dataset',
     version=VERSION,
-    description='Probably the biggest dataset of Names, worldwide',
+    description='The python library to handle names',
     author='Philippe Remy',
     license='MIT',
     install_requires=['pycountry'],
