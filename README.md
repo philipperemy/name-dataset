@@ -1,7 +1,5 @@
 # First and Last Names Dataset
 
-*From 533M Facebook records.*
-
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
@@ -9,9 +7,6 @@ This Python library provides information about names:
 - Popularity (rank)
 - Country (105 countries are supported)
 - Gender
-
-*NOTE: If you have the full text and are looking for a named entity recognition library (NER), I advise you to checkout this one
-from [Stanford University](https://nlp.stanford.edu/software/CRF-NER.html).*
 
 **Composition:** v3 (2022): 730K first names, 983K last names - extracted from
 the [Facebook massive dump (533M users)](https://www.theguardian.com/technology/2021/apr/03/500-million-facebook-users-website-hackers)
@@ -80,7 +75,7 @@ full.tar.bz2 (2.3G)](https://drive.google.com/file/d/1wRQfw5EYpzulvRfHCGIUWB2am5
 
 ## License
 
-- For the V3, it's fetched from the massive Facebook Leak (533M accounts).
+- For the V3, it was generated from the massive Facebook Leak (533M accounts).
 - Lists of names are [not copyrightable](https://www.justia.com/intellectual-property/copyright/lists-directories-and-databases/), generally speaking, but if you want to be completely sure you should talk to a lawyer.
 
 ## Citation
