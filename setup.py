@@ -2,7 +2,7 @@ from pathlib import Path
 
 from setuptools import setup, find_packages
 
-VERSION = '2.1.0'
+VERSION = '3.0.1'
 
 packages = find_packages()
 package_name = packages[0]
@@ -15,6 +15,7 @@ setup(
     description='Probably the biggest dataset of Names, worldwide',
     author='Philippe Remy',
     license='MIT',
+    install_requires=['pycountry'],
     packages=[package_name],
     include_package_data=True,
     data_files=[(package_name, data_files)]
