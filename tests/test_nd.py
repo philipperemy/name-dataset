@@ -12,7 +12,8 @@ supported_country_codes = [
     'JM', 'JO', 'JP', 'KH', 'KR', 'KW', 'KZ', 'LB', 'LT', 'LU', 'LY', 'MA', 'MD', 'MO',
     'MT', 'MU', 'MV', 'MX', 'MY', 'NA', 'NG', 'NL', 'NO', 'OM', 'PA', 'PE', 'PH', 'PL',
     'PR', 'PS', 'PT', 'QA', 'RS', 'RU', 'SA', 'SD', 'SE', 'SG', 'SI', 'SV', 'SY', 'TM',
-    'TN', 'TR', 'TW', 'US', 'UY', 'YE', 'ZA']
+    'TN', 'TR', 'TW', 'US', 'UY', 'YE', 'ZA'
+]
 
 
 class TestNd(unittest.TestCase):
