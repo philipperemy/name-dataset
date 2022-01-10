@@ -5,13 +5,12 @@
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
-This library is useful when you have a name, and you want to check if it looks like a legit name. It also contains
-information on the country (105 countries supported) and the gender (male or female).
+This Python library provides information about names: popularity (rank), country (105 countries supported) and gender.
 
-*NOTE: If you have the full text and want to find where the names are, I advise you to use a NER library like the one
+*NOTE: If you have the full text and are looking for a named entity recognition library (NER), I advise you to checkout this one
 from [Stanford University](https://nlp.stanford.edu/software/CRF-NER.html).*
 
-**Composition:** v3 (2022): 730K first names, 983K last names - from
+**Composition:** v3 (2022): 730K first names, 983K last names - extracted from
 the [Facebook massive dump (533M users)](https://www.theguardian.com/technology/2021/apr/03/500-million-facebook-users-website-hackers)
 .
 
@@ -30,8 +29,8 @@ Once it's installed, run those commands to familiarize yourself with the library
 ```python
 from names_dataset import NameDataset
 
-# The V3 lib takes time to init (the database is massive).
-nd = NameDataset()  # init it only once in your app because the V2 takes much more time to init than the V1.
+# The V3 lib takes time to init (the database is massive). Tip: Put it into the init of your app.
+nd = NameDataset()
 
 print(nd.search('Walter'))
 # {'first_name': {'country': {'Argentina': 0.062, 'Austria': 0.037, 'Bolivia, Plurinational State of': 0.042, 'Colombia': 0.096, 'Germany': 0.044, 'Italy': 0.295, 'Peru': 0.185, 'United States': 0.159, 'Uruguay': 0.036, 'South Africa': 0.043}, 'gender': {'Female': 0.007, 'Male': 0.993}, 'rank': {'Argentina': 37, 'Austria': 34, 'Bolivia, Plurinational State of': 67, 'Colombia': 250, 'Germany': 214, 'Italy': 193, 'Peru': 27, 'United States': 317, 'Uruguay': 44, 'South Africa': 388}}, 'last_name': {'country': {'Austria': 0.036, 'Brazil': 0.039, 'Switzerland': 0.032, 'Germany': 0.299, 'France': 0.121, 'United Kingdom': 0.048, 'Italy': 0.09, 'Nigeria': 0.078, 'United States': 0.172, 'South Africa': 0.085}, 'gender': {}, 'rank': {'Austria': 106, 'Brazil': 805, 'Switzerland': 140, 'Germany': 39, 'France': 625, 'United Kingdom': 1823, 'Italy': 3564, 'Nigeria': 926, 'United States': 1210, 'South Africa': 1169}}}
@@ -71,19 +70,15 @@ The `get_country_codes` returns the supported country codes (or full `pycountry`
 
 - `alpha_2`: Only returns the country codes: 2-char code. Default is False.
 
-## Gender / Countries
+## Full curated dataset
 
-- I have uploaded the full dataset containing first, last names along with gender and
-  countries [here](https://drive.google.com/file/d/1wRQfw5EYpzulvRfHCGIUWB2am5JUYVGk/view?usp=sharing).
-
-Those are [alpha2 country codes](https://www.iban.com/country-codes).
+- The full (curated) dataset containing first, last names along with gender and countries has been uploaded here: [
+full.tar.bz2 (2.3G)](https://drive.google.com/file/d/1wRQfw5EYpzulvRfHCGIUWB2am5JUYVGk/view?usp=sharing).
 
 ## License
 
 - For the V3, it's fetched from the massive Facebook Leak (533M accounts).
-- Lists of names
-  are [not copyrightable](https://www.justia.com/intellectual-property/copyright/lists-directories-and-databases/),
-  generally speaking, but if you want to be completely sure you should talk to a lawyer.
+- Lists of names are [not copyrightable](https://www.justia.com/intellectual-property/copyright/lists-directories-and-databases/), generally speaking, but if you want to be completely sure you should talk to a lawyer.
 
 ## Citation
 
