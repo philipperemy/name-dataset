@@ -2,6 +2,7 @@
 import json
 import operator
 from argparse import ArgumentParser
+from collections import defaultdict
 from pathlib import Path
 
 from generation.generate_stats import norm_dict
@@ -61,6 +62,23 @@ def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_
         if '' in name_info['gender']:
             del name_info['gender']['']  # only M and F. Discard N/A.
         norm_dict(name_info, apply=normalizers, keys_to_avoid_norm={'popularity'})
+
+    ranks_per_country = defaultdict(dict)
+    ranks = defaultdict(dict)  # {country: <name: rank>}
+    for name, name_info in names_all.items():
+        for country, score in name_info['popularity'].items():
+            ranks[country][name] = score
+    for country, rank in ranks.items():
+        ordered_rank = dict([(a[1][0], a[0]) for a in list(enumerate(sorted(
+            rank.items(),
+            key=operator.itemgetter(1), reverse=True)
+        ))])
+        for name, r in ordered_rank.items():
+            # rank should start from 1 and not 0.
+            ranks_per_country[name][country] = r + 1
+
+    for name, name_info in names_all.items():
+        name_info['rank'] = ranks_per_country[name]
 
     with open(output_filename, 'w', encoding='utf8', errors='ignore') as w:
         json.dump(names_all, w, indent=2, ensure_ascii=False, sort_keys=True)
