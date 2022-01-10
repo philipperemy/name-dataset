@@ -79,6 +79,7 @@ def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_
 
     for name, name_info in names_all.items():
         name_info['rank'] = ranks_per_country[name]
+        del name_info['popularity']  # saving some space.
 
     with open(output_filename, 'w', encoding='utf8', errors='ignore') as w:
         json.dump(names_all, w, indent=2, ensure_ascii=False, sort_keys=True)
