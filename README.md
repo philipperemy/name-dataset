@@ -5,7 +5,10 @@
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
-This Python library provides information about names: popularity (rank), country (105 countries supported) and gender.
+This Python library provides information about names: 
+- Popularity (rank)
+- Country (105 countries are supported)
+- Gender
 
 *NOTE: If you have the full text and are looking for a named entity recognition library (NER), I advise you to checkout this one
 from [Stanford University](https://nlp.stanford.edu/software/CRF-NER.html).*
