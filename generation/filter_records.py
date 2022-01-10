@@ -50,9 +50,13 @@ def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_
             reverse=True)[0:max_countries_per_name])
         countries = name_info['country'].keys()
         # to make sure the country support is the same.
+        # name_info['popularity'] = {
+        #     c: name_info['popularity'][c]
+        #     if c in name_info['popularity'] else 0.0 for c in countries
+        # }
         name_info['popularity'] = {
             c: name_info['popularity'][c]
-            if c in name_info['popularity'] else 0.0 for c in countries
+            for c in countries if c in name_info['popularity']
         }
         if '' in name_info['gender']:
             del name_info['gender']['']  # only M and F. Discard N/A.
