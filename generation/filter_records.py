@@ -21,9 +21,11 @@ def get_script_arguments():
 def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_name, output_filename):
     print(f'filter_records: {output_filename}.')
     names_all = {}
+    names_to_keep_set = set()  # if at least one country keeps the name, we keep it.
     for country_code, names in by_country.items():
         desc_tuples = sorted(names.items(), key=operator.itemgetter(1), reverse=True)
-        desc_tuples = desc_tuples[0:trunc_values]
+        for name_to_keep in [a[0] for a in desc_tuples[0:trunc_values]]:
+            names_to_keep_set.add(name_to_keep)
         names_by_country = {
             a: {**{'gender': gender_by[a] if a in gender_by else {}},
                 **{'country': country_by[a] if a in country_by else {}},
@@ -43,6 +45,7 @@ def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_
         'country': lambda x: round(x, 3),
         'popularity': lambda x: round(x, 6)
     }
+
     for name, name_info in names_all.items():
         # truncate to maximum 5 countries. It will later be normalized.
         name_info['country'] = dict(sorted(
@@ -50,11 +53,6 @@ def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_
             key=operator.itemgetter(1),
             reverse=True)[0:max_countries_per_name])
         countries = name_info['country'].keys()
-        # to make sure the country support is the same.
-        # name_info['popularity'] = {
-        #     c: name_info['popularity'][c]
-        #     if c in name_info['popularity'] else 0.0 for c in countries
-        # }
         name_info['popularity'] = {
             c: name_info['popularity'][c]
             for c in countries if c in name_info['popularity']
@@ -81,6 +79,8 @@ def generate(by_country, gender_by, country_by, trunc_values, max_countries_per_
         name_info['rank'] = ranks_per_country[name]
         del name_info['popularity']  # saving some space.
 
+    # filter by names.
+    names_all = {a: b for a, b in names_all.items() if a in names_to_keep_set}
     with open(output_filename, 'w', encoding='utf8', errors='ignore') as w:
         json.dump(names_all, w, indent=2, ensure_ascii=False, sort_keys=True)
 
