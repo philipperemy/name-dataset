@@ -2,7 +2,7 @@ from pathlib import Path
 
 from setuptools import setup, find_packages
 
-VERSION = '3.0.1'
+VERSION = '3.0.2'
 
 packages = find_packages()
 package_name = packages[0]
@@ -12,11 +12,14 @@ data_files = [str(d) for d in data_files]
 setup(
     name='names-dataset',
     version=VERSION,
-    description='Probably the biggest dataset of Names, worldwide',
+    description='The python library to handle names',
     author='Philippe Remy',
     license='MIT',
     install_requires=['pycountry'],
     packages=[package_name],
+    long_description_content_type='text/markdown',
+    long_description=open('README.md').read(),
     include_package_data=True,
     data_files=[(package_name, data_files)]
 )
+
