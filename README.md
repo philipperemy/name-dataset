@@ -8,9 +8,8 @@ This Python library provides information about names:
 - Country (105 countries are supported)
 - Gender
 
-**Composition:** v3 (2022): 730K first names, 983K last names - extracted from
-the [Facebook massive dump (533M users)](https://www.theguardian.com/technology/2021/apr/03/500-million-facebook-users-website-hackers)
-.
+**Composition:** 730K first names, 983K last names - extracted from
+the [Facebook massive dump (533M users)](https://www.theguardian.com/technology/2021/apr/03/500-million-facebook-users-website-hackers).
 
 ## Installation
 
