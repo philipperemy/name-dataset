@@ -13,7 +13,7 @@ the [Facebook massive dump (533M users)](https://www.theguardian.com/technology/
 
 ## Installation
 
-Available on *[PyPI](https://pypi.org/project/names-dataset/)*
+Available on *[PyPI](https://pypi.org/project/names-dataset/)*:
 
 ```bash
 pip install names-dataset
