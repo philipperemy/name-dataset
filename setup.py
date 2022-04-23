@@ -2,7 +2,7 @@ from pathlib import Path
 
 from setuptools import setup, find_packages
 
-VERSION = '3.0.1'
+VERSION = '3.0.3'
 
 packages = find_packages()
 package_name = packages[0]
@@ -17,6 +17,8 @@ setup(
     license='MIT',
     install_requires=['pycountry'],
     packages=[package_name],
+    long_description_content_type='text/markdown',
+    long_description=open('README.md', encoding='utf-8').read(),
     include_package_data=True,
     data_files=[(package_name, data_files)]
 )
