@@ -17,6 +17,38 @@ def _query(search_set, key):
     return None
 
 
+def _arg(d: dict, f=max) -> str:
+    try:
+        g_ = {a: b for a, b in d.items() if b is not None}
+        return f(g_, key=g_.get)
+    except ValueError:
+        return ''
+
+
+class NameWrapper:
+
+    def __init__(self, d: dict):  # result of NameDataset.search()
+        self.d = d
+
+    def _attrib(self, attrib_name):
+        key = 'first_name' if self.d.get('first_name') is not None else 'last_name'
+        if self.d[key] is None:
+            return ''
+        return _arg(self.d[key][attrib_name], max)
+
+    @property
+    def country(self):
+        return self._attrib('country')
+
+    @property
+    def gender(self):
+        return self._attrib('gender')
+
+    @property
+    def describe(self):
+        return f'{self.gender}, {self.country}'
+
+
 class NameDataset:
 
     def __init__(self, load_first_names=True, load_last_names=True):

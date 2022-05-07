@@ -2,6 +2,7 @@ import unittest
 from pathlib import Path
 
 from names_dataset import NameDataset
+from names_dataset.nd_v3 import NameWrapper
 
 nd = NameDataset()
 supported_country_codes = [
@@ -130,3 +131,13 @@ class TestNd(unittest.TestCase):
         self.assertNotIn('N/A', result['JP'])
         self.assertIn('M', result['JP'])
         self.assertTrue('F', result['JP'])
+
+    def test_name_wrapper(self):
+        z = NameWrapper(nd.search('Sarah'))
+        p = NameWrapper(nd.search('Philippe'))
+        self.assertEqual(z.gender, 'Female')
+        self.assertEqual(p.gender, 'Male')
+        self.assertEqual(z.country, 'United Kingdom')
+        self.assertEqual(p.country, 'France')
+        self.assertEqual(z.describe, 'Female, United Kingdom')
+        self.assertEqual(p.describe, 'Male, France')

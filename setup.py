@@ -2,7 +2,7 @@ from pathlib import Path
 
 from setuptools import setup, find_packages
 
-VERSION = '3.0.4'
+VERSION = '3.1.0'
 
 packages = find_packages()
 package_name = packages[0]
