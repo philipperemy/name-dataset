@@ -124,3 +124,9 @@ class TestNd(unittest.TestCase):
                 pct_is_none.append(nd.search(name_to_query)['first_name'])
         pct_is_none = 100 * sum([a is None for a in pct_is_none]) / len(pct_is_none)
         self.assertGreater(pct_is_none, 60)
+
+    def test_no_na_in_gender(self):
+        result = nd.get_top_names(n=10, country_alpha2='JP', use_first_names=True)
+        self.assertNotIn('N/A', result['JP'])
+        self.assertIn('M', result['JP'])
+        self.assertTrue('F', result['JP'])

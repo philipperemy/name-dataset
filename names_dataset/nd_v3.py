@@ -97,6 +97,10 @@ class NameDataset:
                     )][0:n]
         if not use_first_names:
             ranks_per_country = {a: b['N/A'] for a, b in ranks_per_country.items()}
+        else:
+            for country_code, values in ranks_per_country.items():
+                if 'N/A' in values:
+                    del values['N/A']
         return dict(ranks_per_country)
 
     @staticmethod
