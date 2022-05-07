@@ -11,7 +11,7 @@ This Python library provides information about names:
 
 It can give you an answer to some of those questions:
 - Who is `Zoe`? Likely a `Female, United Kindgom`. 
-- Knows `Philippe`? Likely a `French, France`.
+- Knows `Philippe`? Likely a `Male, France`.
 - How about `Nikki`? Likely a `Female, United States`.
 
 ## Composition
