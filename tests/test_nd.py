@@ -1,8 +1,7 @@
 import unittest
 from pathlib import Path
 
-from names_dataset import NameDataset
-from names_dataset.nd_v3 import NameWrapper
+from names_dataset import NameDataset, NameWrapper
 
 nd = NameDataset()
 supported_country_codes = [
