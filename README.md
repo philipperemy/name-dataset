@@ -83,8 +83,10 @@ The `get_country_codes` returns the supported country codes (or full `pycountry`
 
 ## Full dataset
 
-- The full (curated) dataset containing first, last names along with gender and countries has been uploaded here: [
-full.tar.bz2 (2.3G)](https://drive.google.com/file/d/1wRQfw5EYpzulvRfHCGIUWB2am5JUYVGk/view?usp=sharing).
+The full (curated) dataset containing first, last names along with gender and countries has been uploaded here: 
+- [full.tar.bz2 (2.3G)](https://drive.google.com/file/d/1wRQfw5EYpzulvRfHCGIUWB2am5JUYVGk/view?usp=sharing).
+
+The format of this dataset is described here: https://github.com/philipperemy/name-dataset/issues/17#issuecomment-960463005.
 
 ## License
 
