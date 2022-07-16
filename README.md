@@ -36,7 +36,7 @@ from names_dataset import NameDataset, NameWrapper
 # The V3 lib takes time to init (the database is massive). Tip: Put it into the init of your app.
 nd = NameDataset()
 
-print(NameWrapper(nd.search('Zoe')).describe)
+print(NameWrapper(nd.search('Philippe')).describe)
 # Male, France
 
 print(NameWrapper(nd.search('Zoe')).describe)
