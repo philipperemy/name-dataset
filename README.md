@@ -102,8 +102,11 @@ The format of this dataset is described here: https://github.com/philipperemy/na
 
 ## Countries
 
+Afghanistan, Albania, Algeria, Angola, Argentina, Austria, Azerbaijan, Bahrain, Bangladesh, Belgium, Bolivia, Plurinational State of, Botswana, Brazil, Brunei Darussalam, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Chile, China, Colombia, Costa Rica, Croatia, Cyprus, Czechia, Denmark, Djibouti, Ecuador, Egypt, El Salvador, Estonia, Ethiopia, Fiji, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Haiti, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Iran, Islamic Republic of, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Korea, Republic of, Kuwait, Lebanon, Libya, Lithuania, Luxembourg, Macao, Malaysia, Maldives, Malta, Mauritius, Mexico, Moldova, Republic of, Morocco, Namibia, Netherlands, Nigeria, Norway, Oman, Palestine, State of, Panama, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Russian Federation, Saudi Arabia, Serbia, Singapore, Slovenia, South Africa, Spain, Sudan, Sweden, Switzerland, Syrian Arab Republic, Taiwan, Province of China, Tunisia, Turkey, Turkmenistan, United Arab Emirates, United Kingdom, United States, Uruguay, Yemen.
+
 🇲🇹🇪🇬🇧🇴🇳🇦🇹🇳🇷🇸🇯🇲🇦🇷🇯🇵🇰🇿🇸🇦🇺🇸🇦🇪🇭🇺🇭🇰🇶🇦🇸🇬🇩🇪🇾🇪🇲🇾🇭🇹🇵🇷🇨🇳🇦🇴🇹🇼🇸🇩🇧🇭🇧🇪🇪🇹🇪🇪🇨🇴🇬🇷🇧🇷🇷🇺🇱🇾🇸🇻🇰🇼🇰🇷🇦🇱🇸🇾🇧🇫🇨🇿🇨🇦🇴🇲🇩🇰🇨🇱🇧🇩🇧🇼🇫🇯🇮🇶🇮🇪🇿🇦🇨🇷🇯🇴🇰🇭🇵🇪🇺🇾🇮🇷🇲🇩🇫🇷🇲🇴🇳🇱🇬🇭🇨🇾🇩🇿🇮🇹🇬🇧🇧🇮🇮🇳🇫🇮🇦🇫🇵🇭🇦🇿🇬🇪🇨🇲🇮🇱🇪🇸🇱🇹🇩🇯🇬🇹🇱🇺🇵🇸🇹🇷🇵🇱🇮🇸🇳🇬🇵🇦🇭🇷🇸🇮🇭🇳🇦🇹🇲🇺🇸🇪🇲🇦🇨🇭🇧🇳🇲🇻🇳🇴🇪🇨🇮🇩🇧🇬🇵🇹🇲🇽🇱🇧🇹🇲
 
+*NOTE*: It is unfortunately not possible to support more countries because the missing ones were not included in the original dataset.
 
 ## Citation
 
