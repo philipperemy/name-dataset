@@ -28,6 +28,8 @@ pip install names-dataset
 
 ## Usage
 
+*NOTE*: The library requires 3.2GB of RAM to load the full dataset in memory. Make sure you have enough RAM to avoid `MemoryError`. 
+
 Once it's installed, run those commands to familiarize yourself with the library:
 
 ```python
