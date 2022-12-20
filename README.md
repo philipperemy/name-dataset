@@ -81,9 +81,9 @@ The `search` call provides information about:
 The `get_top_names` call gives the most popular names:
 
 - `n`: The number of names to return matching some criteria. Default is 100.
-- `gender`: Filters on `Male` or `Female`. Default is None.
+- `gender`: Filters on `Male` or `Female`. Default is None (both are returned).
 - `use_first_names`: Filters on the first names or last names. Default is True.
-- `country_alpha2`: Filters on the country (e.g. GB is the United Kingdom). Default is None.
+- `country_alpha2`: Filters on the country (e.g. GB is the United Kingdom). Default is None (all countries are returned).
 
 The `get_country_codes` returns the supported country codes (or full `pycountry` objects).
 
