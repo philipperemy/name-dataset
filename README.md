@@ -3,6 +3,7 @@
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
+** To download the raw CSV data for your analysis, browse [here](#full-dataset)
 
 This Python library provides information about names: 
 - Popularity (rank)
@@ -91,9 +92,14 @@ The `get_country_codes` returns the supported country codes (or full `pycountry`
 
 ## Full dataset
 
-The full (curated) dataset containing first, last names along with gender and countries has been uploaded here [full.tar.bz2 (2.3G)](https://drive.google.com/file/d/1wRQfw5EYpzulvRfHCGIUWB2am5JUYVGk/view?usp=sharing).
+The dataset is available here [name_dataset.zip (3.3GB)](https://drive.google.com/file/d/1QDbtPWGQypYxiS4pC_hHBBtbRHk9gEtr/view?usp=sharing).
 
-The format of this dataset is described here: https://github.com/philipperemy/name-dataset/issues/17#issuecomment-960463005.
+<img width="284" alt="image" src="https://user-images.githubusercontent.com/4516927/220814570-85340302-4c49-4648-b1c8-dedebd0e570b.png">
+
+- The data contains **491,655,925** records from 106 countries. The uncompressed version takes around 10GB on the disk.
+- Each country is in a separate CSV file.
+- A CSV file contains rows of this format: first_name,last_name,gender,country_code. 
+- Each record is a real person.
 
 ## License
 
