@@ -3,7 +3,7 @@
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
-** To download the raw CSV data for your analysis, browse [here](#full-dataset)
+**To download the raw CSV data for your analysis, browse [here](#full-dataset)**
 
 This Python library provides information about names: 
 - Popularity (rank)
