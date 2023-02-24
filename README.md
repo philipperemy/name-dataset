@@ -96,7 +96,8 @@ The dataset is available here [name_dataset.zip (3.3GB)](https://drive.google.co
 
 <img width="284" alt="image" src="https://user-images.githubusercontent.com/4516927/220814570-85340302-4c49-4648-b1c8-dedebd0e570b.png">
 
-- The data contains **491,655,925** records from 106 countries. The uncompressed version takes around 10GB on the disk.
+- The data contains **491,655,925** records from 106 countries. 
+- The uncompressed version takes around 10GB on the disk.
 - Each country is in a separate CSV file.
 - A CSV file contains rows of this format: first_name,last_name,gender,country_code. 
 - Each record is a real person.
