@@ -36,7 +36,7 @@ Once it's installed, run those commands to familiarize yourself with the library
 ```python
 from names_dataset import NameDataset, NameWrapper
 
-# The V3 lib takes time to init (the database is massive). Tip: Put it into the init of your app.
+# The library takes time to initialize because the database is massive. A tip is to include its initialization in your app's startup process.
 nd = NameDataset()
 
 print(NameWrapper(nd.search('Philippe')).describe)
