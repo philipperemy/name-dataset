@@ -84,7 +84,7 @@ def country_codes():
     try:
         req = request
         alpha_2 = _str2bool(req.args.get('alpha_2', False))
-        result = nd.get_country_codes(alpha_2=alpha_2)
+        result = nd.get_country_codes(alpha_2=alpha_2, cache=True)
         return _generate_output({'result': result})
     except Exception as e:
         return _generate_output({'error': str(e)})

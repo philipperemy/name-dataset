@@ -103,11 +103,11 @@ def _fuzzy_search(
         if country_alpha2 is not None:
             if country_alpha2 not in ranks:
                 continue
-            measure = ranks[country_alpha2]
+            rank = ranks[country_alpha2]
         else:
-            measure = int(sum(ranks.values()) / len(ranks))
-        result.append({'name': name[0], 'measure': measure})
-    result = sorted(result, key=lambda x: x['measure'])[0:n]
+            rank = int(sum(ranks.values()) / len(ranks))
+        result.append({'name': name[0], 'rank': rank})
+    result = sorted(result, key=lambda x: x['rank'])[0:n]
     return result
 
 
@@ -186,7 +186,9 @@ class NameDataset:
         ln = self._post_process(self.last_names.get(key)) if self.last_names is not None else None
         return {'first_name': fn, 'last_name': ln}
 
-    def get_country_codes(self, alpha_2=False):
+    def get_country_codes(self, alpha_2=False, cache: bool = False):
+        if cache and alpha_2:
+            return self.country_codes
         lookup_table = self.first_names if self.first_names is not None else self.last_names
         countries_list = [list(a['country'].keys()) for a in lookup_table.values()]
         countries = set()
