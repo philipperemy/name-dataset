@@ -12,6 +12,8 @@ RUN pip install -e . --upgrade
 
 WORKDIR api
 
+EXPOSE 8888
+
 ENTRYPOINT [ "python3" ]
 
 CMD [ "server.py" ]
