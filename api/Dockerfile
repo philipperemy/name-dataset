@@ -8,12 +8,13 @@ ENV PYTHONUNBUFFERED 1
 COPY . /app/
 
 WORKDIR /app
+
 RUN pip install -e . --upgrade
-RUN pip install flask waitress
 
 WORKDIR api
+RUN pip install -r requirements.txt
 
-EXPOSE 8888
+EXPOSE 9999
 
 ENTRYPOINT [ "python3" ]
 
