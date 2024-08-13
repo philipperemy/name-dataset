@@ -9,6 +9,7 @@ COPY . /app/
 
 WORKDIR /app
 RUN pip install -e . --upgrade
+RUN pip install flask waitress
 
 WORKDIR api
 
