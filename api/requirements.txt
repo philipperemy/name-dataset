@@ -1,3 +1,4 @@
 waitress
 flask
 paste
+fuzzywuzzy
