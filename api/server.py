@@ -5,7 +5,7 @@ from typing import Union, Optional, Any, List
 
 from flask import Flask, request
 from paste.translogger import TransLogger
-from waitress import serve as _serve
+from waitress import serve
 
 from names_dataset import NameDataset, NameWrapper
 from names_dataset.emails import extract_names_from_email
@@ -86,9 +86,9 @@ def split():
         req = request
         q = req.args.get('q')
         if q is None:
-            return generate_output(
+            return _generate_output(
                 'provide a parameter q, for example '
-                'q=philipperemy@gmail.com or philipperemy', status=False
+                'q=philipperemy@gmail.com or philipperemy'
             )
         else:
             first_name, last_name = extract_names_from_email(nd, q)
@@ -108,9 +108,9 @@ def split():
                 'first_name': result_first_name,
                 'last_name': result_last_name
             }
-            return generate_output({'result': result}, status=True)
+            return _generate_output({'result': result})
     except Exception as e:
-        return generate_output({'error': str(e)}, status=True)
+        return _generate_output({'error': str(e)})
 
 
 @app.route('/country_codes', methods=['GET'])
@@ -177,4 +177,4 @@ def autocomplete():
 
 
 if __name__ == '__main__':
-    _serve(TransLogger(app, setup_console_handler=False), port=8888, threads=4)
+    serve(TransLogger(app, setup_console_handler=False), port=9999, threads=4)
