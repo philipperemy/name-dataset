@@ -94,14 +94,16 @@ def split():
             first_name, last_name = extract_names_from_email(nd, q)
             if first_name is not None:
                 result_first_name = nd.search(first_name)['first_name']
+                if result_first_name is not None:
+                    result_first_name['name'] = first_name
             else:
                 result_first_name = None
             if last_name is not None:
                 result_last_name = nd.search(last_name)['last_name']
+                if result_last_name is not None:
+                    result_last_name['name'] = last_name
             else:
                 result_last_name = None
-            result_first_name['name'] = first_name
-            result_last_name['name'] = last_name
             result = {
                 'first_name': result_first_name,
                 'last_name': result_last_name
