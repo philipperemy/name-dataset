@@ -5,8 +5,6 @@ import numpy as np
 
 from names_dataset import NameDataset
 
-nd = NameDataset()
-
 
 def _compute_score(ranks: Dict):
     values = {a: b for a, b in ranks['rank'].items() if b is not None}.values()
@@ -15,7 +13,7 @@ def _compute_score(ranks: Dict):
     return -min(values)
 
 
-def _score(candidate: str):
+def _score(nd: NameDataset, candidate: str):
     if len(candidate) == 0:
         return float('-inf')
     first_name = nd.search(candidate)['first_name']
@@ -33,8 +31,8 @@ def _score(candidate: str):
 
 
 # Function to infer the best split between first and last name
-def _infer_best_split(full_name: str):
-    max_score = _score(full_name)
+def _infer_best_split(nd: NameDataset, full_name: str):
+    max_score = _score(nd, full_name)
     best_split = (full_name, None)
 
     # Try all possible ways to split the full_name
@@ -43,7 +41,7 @@ def _infer_best_split(full_name: str):
         last = full_name[i:]
 
         # Calculate total score for the split
-        total_score = _score(first) + _score(last)
+        total_score = _score(nd, first) + _score(nd, last)
 
         # If this split has a higher score, update the best split
         if total_score > max_score:
@@ -53,14 +51,17 @@ def _infer_best_split(full_name: str):
     return best_split, max_score
 
 
-def _general_score(candidate: str):
+def _general_score(nd: NameDataset, candidate: str):
     c = nd.search(candidate)
     s1 = _compute_score(c['first_name'])
     s2 = _compute_score(c['last_name'])
     return max(s1, s2)
 
 
-def extract_names_from_email(email: str):
+def extract_names_from_email(nd: NameDataset, email: str):
+    if '@' not in email:
+        email += '@gmail.com'
+
     email = ''.join([e for e in list(email) if not e.isnumeric()])
 
     prefix, suffix = email.split('@')
@@ -76,7 +77,7 @@ def extract_names_from_email(email: str):
     for e in ['.', '_', '-']:
         if prefix.count(e) >= 2:
             c_list = prefix.split(e)
-            scores = [_general_score(c) for c in c_list]
+            scores = [_general_score(nd, c) for c in c_list]
             a, b = np.array(c_list)[np.argsort(scores)][-2:]
             email = f'{a}.{b}@{suffix}'
 
@@ -102,7 +103,7 @@ def extract_names_from_email(email: str):
 
     if not had_matched:
         prefix = email.split('@')[0]
-        (first_name, last_name), max_score = _infer_best_split(prefix)
+        (first_name, last_name), max_score = _infer_best_split(nd, prefix)
 
     if first_name is not None and len(first_name) == 1:
         first_name = None
