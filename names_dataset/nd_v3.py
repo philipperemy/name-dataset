@@ -1,13 +1,21 @@
 import copy
-import json
 import operator
 import os
-import zipfile
+import pickle
 from collections import defaultdict
 from pathlib import Path
 from typing import Optional
 
+import lz4.frame
 import pycountry
+
+
+# Function to decompress and unpickle data
+def decompress_and_unpickle(compressed_file):
+    with open(compressed_file, 'rb') as file:
+        compressed_data = file.read()
+    original_data = pickle.loads(lz4.frame.decompress(compressed_data))
+    return original_data
 
 
 def _query(search_set, key):
@@ -54,16 +62,16 @@ class NameDataset:
     def __init__(self, load_first_names=True, load_last_names=True):
         if not load_first_names and not load_last_names:
             raise ValueError('Select either [load_first_names=True] and/or [load_last_names=True].')
-        first_names_filename = Path(os.path.dirname(__file__)) / 'v3/first_names.zip'
-        last_names_filename = Path(os.path.dirname(__file__)) / 'v3/last_names.zip'
+        first_names_filename = Path(os.path.dirname(__file__)) / 'v3/first_names.lz4'
+        last_names_filename = Path(os.path.dirname(__file__)) / 'v3/last_names.lz4'
         self.first_names = self._read_json_from_zip(first_names_filename) if load_first_names else None
         self.last_names = self._read_json_from_zip(last_names_filename) if load_last_names else None
 
     @staticmethod
     def _read_json_from_zip(zip_file):
-        with zipfile.ZipFile(zip_file) as z:
-            with z.open(z.filelist[0]) as f:
-                return json.load(f)
+        print(zip_file)
+        # return pickle.load(gzip.open(zip_file, 'rb'))
+        return decompress_and_unpickle(zip_file)
 
     def search(self, name: str):
         key = name.strip().title()
