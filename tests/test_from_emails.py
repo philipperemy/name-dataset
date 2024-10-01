@@ -1,5 +1,6 @@
 import unittest
 
+from names_dataset import NameDataset
 from names_dataset.emails import extract_names_from_email
 
 
@@ -28,6 +29,9 @@ class TestEmail(unittest.TestCase):
             'j_remy123@example.com',
             'philippe.remy1@example.com',
         ]
+        inputs2 = []
+        for i in inputs:
+            inputs2.append(i.split('@')[0])
 
         outputs = [
             [None, None],
@@ -52,8 +56,9 @@ class TestEmail(unittest.TestCase):
             ['philippe', 'remy'],
         ]
 
-        for input_, output_ in zip(inputs, outputs):
-            first_name, last_name = extract_names_from_email(input_)
+        nd = NameDataset()
+        for input_, output_ in zip(inputs2, outputs):
+            first_name, last_name = extract_names_from_email(nd, input_)
             print(input_)
             self.assertEqual(output_[0], first_name)
             self.assertEqual(output_[1], last_name)

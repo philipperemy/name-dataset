@@ -8,6 +8,7 @@ from paste.translogger import TransLogger
 from waitress import serve
 
 from names_dataset import NameDataset, NameWrapper
+from names_dataset.emails import extract_names_from_email
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
@@ -44,6 +45,37 @@ def str2bool(s: Union[bool, str]) -> bool:
         if s.lower() in ['1', '0', 'true', 'y']:
             return True
         return False
+
+
+@app.route('/split', methods=['GET'])
+def split():
+    try:
+        req = request
+        q = req.args.get('q')
+        if q is None:
+            return generate_output(
+                'provide a parameter q, for example '
+                'q=philipperemy@gmail.com or philipperemy', status=False
+            )
+        else:
+            first_name, last_name = extract_names_from_email(nd, q)
+            if first_name is not None:
+                result_first_name = nd.search(first_name)['first_name']
+            else:
+                result_first_name = None
+            if last_name is not None:
+                result_last_name = nd.search(last_name)['last_name']
+            else:
+                result_last_name = None
+            result_first_name['name'] = first_name
+            result_last_name['name'] = last_name
+            result = {
+                'first_name': result_first_name,
+                'last_name': result_last_name
+            }
+            return generate_output({'result': result}, status=True)
+    except Exception as e:
+        return generate_output({'error': str(e)}, status=True)
 
 
 @app.route('/country_codes', methods=['GET'])
