@@ -15,7 +15,7 @@ setup(
     description='The python library to handle names',
     author='Philippe Remy',
     license='MIT',
-    install_requires=['pycountry'],
+    install_requires=['pycountry', 'numpy'],
     packages=[package_name],
     long_description_content_type='text/markdown',
     long_description=open('README.md', encoding='utf-8').read(),
