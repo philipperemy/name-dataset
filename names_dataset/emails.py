@@ -53,12 +53,17 @@ def _infer_best_split(nd: NameDataset, full_name: str):
 
 def _general_score(nd: NameDataset, candidate: str):
     c = nd.search(candidate)
-    s1 = _compute_score(c['first_name'])
-    s2 = _compute_score(c['last_name'])
-    return max(s1, s2)
+    if c['first_name'] is not None and c['last_name'] is not None:
+        s1 = _compute_score(c['first_name'])
+        s2 = _compute_score(c['last_name'])
+        return max(s1, s2)
+    return float('-inf')
 
 
 def extract_names_from_email(nd: NameDataset, email: str):
+    email = email.strip()
+    if '' in email:
+        email = email.split(' ')[0]
     if '@' not in email:
         email += '@gmail.com'
 
@@ -66,7 +71,7 @@ def extract_names_from_email(nd: NameDataset, email: str):
 
     prefix, suffix = email.split('@')
 
-    no_names = ['contact', 'sales', 'info', 'hello', 'reply']
+    no_names = ['contact', 'sales', 'info', 'hello', 'reply', 'service', 'client']
     for no_name in no_names:
         if no_name in prefix:
             return None, None
