@@ -1,4 +1,5 @@
 import re
+from collections import Counter
 from typing import Dict
 
 import numpy as np
@@ -60,10 +61,37 @@ def _general_score(nd: NameDataset, candidate: str):
     return float('-inf')
 
 
+def try_to_split_with_two_last_names(nd: NameDataset, email: str):
+    c = Counter()
+    for i in range(1, len(email)):
+        first_name, last_name = extract_names_from_email(nd, email[0:i])
+        if first_name is not None:
+            c[first_name] += 1
+        if last_name is not None:
+            c[last_name] += 1
+    most_common = c.most_common(1)
+    if len(most_common) > 0:
+        candidate1 = most_common[0][0]
+        candidate2, candidate3 = extract_names_from_email(nd, email.replace(candidate1, ''))
+
+        fn1, ln1 = _infer_first_and_last_names(candidate1, candidate2, nd)
+        fn2, ln2 = _infer_first_and_last_names(candidate1, candidate3, nd)
+        fn3, ln3 = _infer_first_and_last_names(candidate2, candidate3, nd)
+
+        real_first_name = Counter([fn1, fn2, fn3]).most_common(1)[0][0]
+        last_names = list({candidate1, candidate2, candidate3} - {real_first_name})
+        last_name1 = last_names[0]
+        last_name2 = last_names[1]
+        if email.index(last_name1) < email.index(last_name2):
+            last_name1, last_name2 = last_name1, last_name2
+        else:
+            last_name1, last_name2 = last_name2, last_name1
+        return real_first_name, last_name1, last_name2
+    return None, None, None
+
+
 def extract_names_from_email(nd: NameDataset, email: str):
     email = email.strip()
-    if '' in email:
-        email = email.split(' ')[0]
     if '@' not in email:
         email += '@gmail.com'
 
@@ -116,15 +144,7 @@ def extract_names_from_email(nd: NameDataset, email: str):
         last_name = None
 
     if first_name is not None and last_name is not None:
-        fn_1 = nd.search(first_name)['first_name']
-        ln_1 = nd.search(last_name)['last_name']
-        fn_2 = nd.search(first_name)['last_name']
-        ln_2 = nd.search(last_name)['first_name']
-        if fn_1 is not None and ln_1 is not None and fn_2 is not None and ln_2 is not None:
-            score_1 = _compute_score(fn_1) + _compute_score(ln_1)
-            score_2 = _compute_score(fn_2) + _compute_score(ln_2)
-            if score_2 > score_1:
-                first_name, last_name = last_name, first_name
+        first_name, last_name = _infer_first_and_last_names(first_name, last_name, nd)
 
     if first_name is not None:
         first_name = first_name.lower()
@@ -132,4 +152,17 @@ def extract_names_from_email(nd: NameDataset, email: str):
     if last_name is not None:
         last_name = last_name.lower()
 
+    return first_name, last_name
+
+
+def _infer_first_and_last_names(first_name, last_name, nd):
+    fn_1 = nd.search(first_name)['first_name']
+    ln_1 = nd.search(last_name)['last_name']
+    fn_2 = nd.search(first_name)['last_name']
+    ln_2 = nd.search(last_name)['first_name']
+    if fn_1 is not None and ln_1 is not None and fn_2 is not None and ln_2 is not None:
+        score_1 = _compute_score(fn_1) + _compute_score(ln_1)
+        score_2 = _compute_score(fn_2) + _compute_score(ln_2)
+        if score_2 > score_1:
+            first_name, last_name = last_name, first_name
     return first_name, last_name
