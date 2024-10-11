@@ -74,6 +74,13 @@ def try_to_split_with_two_last_names(nd: NameDataset, email: str):
         candidate1 = most_common[0][0]
         candidate2, candidate3 = extract_names_from_email(nd, email.replace(candidate1, ''))
 
+        if candidate2 is None or candidate3 is None:
+            # if candidate2 is not None:
+            #     return candidate1, None, None
+            # if candidate3 is not None:
+            #     return candidate1, candidate3, None
+            return candidate1, None, None
+
         fn1, ln1 = _infer_first_and_last_names(candidate1, candidate2, nd)
         fn2, ln2 = _infer_first_and_last_names(candidate1, candidate3, nd)
         fn3, ln3 = _infer_first_and_last_names(candidate2, candidate3, nd)
