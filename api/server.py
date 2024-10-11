@@ -1,13 +1,14 @@
 import json
 import logging
 import sys
-from typing import Union
+from typing import Union, Optional, Dict
 
 from flask import Flask, request
 from paste.translogger import TransLogger
 from waitress import serve
 
 from names_dataset import NameDataset, NameWrapper
+from names_dataset.emails import extract_names_from_email, try_to_split_with_two_last_names
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
@@ -44,6 +45,44 @@ def str2bool(s: Union[bool, str]) -> bool:
         if s.lower() in ['1', '0', 'true', 'y']:
             return True
         return False
+
+
+def package_name(name: str, identifier: str) -> Optional[Dict]:
+    if name is not None:
+        result = nd.search(name)[identifier]
+        if result is not None:
+            result['name'] = name.title()
+        return result
+    else:
+        return None
+
+
+@app.route('/split', methods=['GET'])
+def split():
+    try:
+        req = request
+        q = req.args.get('q')
+        if q is None:
+            return generate_output(
+                'provide a parameter q, for example '
+                'q=philipperemy@gmail.com or philipperemy', status=False
+            )
+        else:
+            first_name, last_name = extract_names_from_email(nd, q)
+            last_name2 = None
+            if first_name is None or last_name is None:
+                first_name, last_name, last_name2 = try_to_split_with_two_last_names(nd, q)
+            result_first_name = package_name(first_name, 'first_name')
+            result_last_name = package_name(last_name, 'last_name')
+            result_last_name2 = package_name(last_name2, 'last_name')
+            result = {
+                'first_name': result_first_name,
+                'last_name': result_last_name,
+                'last_name2': result_last_name2
+            }
+            return generate_output({'result': result}, status=True)
+    except Exception as e:
+        return generate_output({'error': str(e)}, status=True)
 
 
 @app.route('/country_codes', methods=['GET'])
@@ -87,4 +126,4 @@ def search():
 
 
 if __name__ == '__main__':
-    serve(TransLogger(app, setup_console_handler=False), port=8888, threads=4)
+    serve(TransLogger(app, setup_console_handler=False), port=9999, threads=4)
