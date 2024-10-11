@@ -6,6 +6,49 @@ from names_dataset.emails import extract_names_from_email, try_to_split_with_two
 
 class TestEmail(unittest.TestCase):
 
+    def test_bugs_1(self):
+        # http://philipperemy.ddns.net:9999/split?q=remy.p@gmail.com
+        # http://philipperemy.ddns.net:9999/split?q=p.remy@gmail.com
+        # It seems that always expect at least 2 parameters.
+        # If you try: http://philipperemy.ddns.net:9999/split?q=premy@gmail.com it works but not form
+        # http://philipperemy.ddns.net:9999/split?q=pr@gmail.com
+        # or
+        # http://philipperemy.ddns.net:9999/split?q=Remy@gmail.com
+        inputs = [
+            'remy.p@gmail.com',
+            'p.remy@gmail.com',
+            'Remy@gmail.com'
+        ]
+
+        outputs = [
+            ['remy', None],
+            [None, 'remy'],
+            ['remy', None],
+        ]
+
+        outputs2 = [
+            ['remy', None, None],
+            ['remy', None, None],
+            ['remy', None, None],
+            ['remy', None, None],
+        ]
+
+        nd = NameDataset()
+        for input_, output_, output2_ in zip(inputs, outputs, outputs2):
+            first_name, last_name = extract_names_from_email(nd, input_)
+            print(input_)
+            print('output=', first_name, last_name)
+            print('expected=', output_[0], output_[1])
+            self.assertEqual(output_[0], first_name)
+            self.assertEqual(output_[1], last_name)
+
+            first_name, last_name, last_name2 = try_to_split_with_two_last_names(nd, input_)
+
+            self.assertEqual(output2_[0], first_name)
+            self.assertEqual(output2_[1], last_name)
+            self.assertEqual(output2_[2], last_name2)
+            print('[OK]')
+
     def test_with_three_3(self):
         inputs = [
             'perezmartiisabel',
