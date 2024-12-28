@@ -102,6 +102,10 @@ The dataset is available here [name_dataset.zip (3.3GB)](https://drive.google.co
 - A CSV file contains rows of this format: first_name,last_name,gender,country_code. 
 - Each record is a real person.
 
+## Ports
+
+- For Ruby see [names_dataset](https://github.com/jonmagic/names_dataset_ruby).
+
 ## License
 
 - This version was generated from the massive Facebook Leak (533M accounts).
