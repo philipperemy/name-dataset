@@ -1,7 +1,7 @@
 import json
 import logging
 import sys
-from typing import Union, Optional, Any, List, Dict
+from typing import Union, Optional, Dict, List, Any
 
 from flask import Flask, request
 from paste.translogger import TransLogger
@@ -78,6 +78,34 @@ def _process_inputs(req):
 def _main():
     endpoints = [a for a, b in globals().items() if not str(a).startswith('_') and 'function' in str(b)]
     return _generate_output(f'Welcome to the Name Search API! List of endpoints: [{", ".join(sorted(endpoints))}].')
+
+
+@app.route('/split', methods=['GET'])
+def split():
+    try:
+        req = request
+        q = req.args.get('q')
+        if q is None:
+            return _generate_output(
+                'provide a parameter q, for example '
+                'q=philipperemy@gmail.com or philipperemy'
+            )
+        else:
+            first_name, last_name = extract_names_from_email(nd, q)
+            last_name2 = None
+            if first_name is None or last_name is None:
+                first_name, last_name, last_name2 = try_to_split_with_two_last_names(nd, q)
+            result_first_name = package_name(first_name, 'first_name')
+            result_last_name = package_name(last_name, 'last_name')
+            result_last_name2 = package_name(last_name2, 'last_name')
+            result = {
+                'first_name': result_first_name,
+                'last_name': result_last_name,
+                'last_name2': result_last_name2
+            }
+            return _generate_output({'result': result})
+    except Exception as e:
+        return _generate_output({'error': str(e)})
 
 
 def package_name(name: str, identifier: str) -> Optional[Dict]:
