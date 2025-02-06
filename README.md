@@ -3,6 +3,7 @@
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
+**To download the raw CSV data for your analysis, browse [here](#full-dataset).**
 
 This Python library provides information about names: 
 - Popularity (rank)
@@ -35,7 +36,7 @@ Once it's installed, run those commands to familiarize yourself with the library
 ```python
 from names_dataset import NameDataset, NameWrapper
 
-# The V3 lib takes time to init (the database is massive). Tip: Put it into the init of your app.
+# The library takes time to initialize because the database is massive. A tip is to include its initialization in your app's startup process.
 nd = NameDataset()
 
 print(NameWrapper(nd.search('Philippe')).describe)
@@ -63,10 +64,10 @@ print(nd.get_country_codes(alpha_2=True))
 # ['AE', 'AF', 'AL', 'AO', 'AR', 'AT', 'AZ', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BN', 'BO', 'BR', 'BW', 'CA', 'CH', 'CL', 'CM', 'CN', 'CO', 'CR', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DZ', 'EC', 'EE', 'EG', 'ES', 'ET', 'FI', 'FJ', 'FR', 'GB', 'GE', 'GH', 'GR', 'GT', 'HK', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IL', 'IN', 'IQ', 'IR', 'IS', 'IT', 'JM', 'JO', 'JP', 'KH', 'KR', 'KW', 'KZ', 'LB', 'LT', 'LU', 'LY', 'MA', 'MD', 'MO', 'MT', 'MU', 'MV', 'MX', 'MY', 'NA', 'NG', 'NL', 'NO', 'OM', 'PA', 'PE', 'PH', 'PL', 'PR', 'PS', 'PT', 'QA', 'RS', 'RU', 'SA', 'SD', 'SE', 'SG', 'SI', 'SV', 'SY', 'TM', 'TN', 'TR', 'TW', 'US', 'UY', 'YE', 'ZA']
 
 nd.first_names
-# Dictionary to all the first names with their attributes.
+# Dictionary of all the first names with their attributes.
 
 nd.last_names
-# Dictionary to all the last names with their attributes.
+# Dictionary of all the last names with their attributes.
 
 ```
 ## API
@@ -81,9 +82,9 @@ The `search` call provides information about:
 The `get_top_names` call gives the most popular names:
 
 - `n`: The number of names to return matching some criteria. Default is 100.
-- `gender`: Filters on `Male` or `Female`. Default is None.
+- `gender`: Filters on `Male` or `Female`. Default is None (both are returned).
 - `use_first_names`: Filters on the first names or last names. Default is True.
-- `country_alpha2`: Filters on the country (e.g. GB is the United Kingdom). Default is None.
+- `country_alpha2`: Filters on the country (e.g. GB is the United Kingdom). Default is None (all countries are returned).
 
 The `get_country_codes` returns the supported country codes (or full `pycountry` objects).
 
@@ -91,9 +92,15 @@ The `get_country_codes` returns the supported country codes (or full `pycountry`
 
 ## Full dataset
 
-The full (curated) dataset containing first, last names along with gender and countries has been uploaded here [full.tar.bz2 (2.3G)](https://drive.google.com/file/d/1wRQfw5EYpzulvRfHCGIUWB2am5JUYVGk/view?usp=sharing).
+The dataset is available here [name_dataset.zip (3.3GB)](https://drive.google.com/file/d/1QDbtPWGQypYxiS4pC_hHBBtbRHk9gEtr/view?usp=sharing).
 
-The format of this dataset is described here: https://github.com/philipperemy/name-dataset/issues/17#issuecomment-960463005.
+<img width="284" alt="image" src="https://user-images.githubusercontent.com/4516927/220814570-85340302-4c49-4648-b1c8-dedebd0e570b.png">
+
+- The data contains **491,655,925** records from 106 countries. 
+- The uncompressed version takes around 10GB on the disk.
+- Each country is in a separate CSV file.
+- A CSV file contains rows of this format: first_name,last_name,gender,country_code. 
+- Each record is a real person.
 
 ## License
 
