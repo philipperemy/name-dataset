@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '3.3.0'
+VERSION = '3.3.1'
 
 packages = find_packages()
 package_name = packages[0]
