@@ -82,25 +82,74 @@ nd.last_names
 ```
 ## API
 
-The `search` endpoint provides information about:
-- `country`: The probability of the name belonging to a country. Only the top 10 countries matching the name are returned.
-- `gender`: The probability of the person to be a `Male` or `Female`.
-- `rank`: The rank of the name in his country. `1` means the most popular name.
+```
+🔍 search(name: str)
+```
 
-- **NOTE**: `first_name/last_name`: the `gender` does not apply to `last_name`.
+Searches for a name and returns metadata for both first and last names (if available).
 
-The `get_top_names` endpoint gives the most popular names:
+- country: The probability that the name belongs to a given country. Only the top 10 matching countries are returned.
+- gender: The probability of the person being male or female.
+- rank: The popularity rank of the name in its country (1 = most popular).
 
-- `n`: The number of names to return matching some criteria. Default is 100.
-- `gender`: Filters on `Male` or `Female`. Default is None (both are returned).
-- `use_first_names`: Filters on the first names or last names. Default is True.
-- `country_alpha2`: Filters on the country (e.g. GB is the United Kingdom). Default is None (all countries are returned).
+📌 Note: Gender data only applies to first names.
 
-The `get_country_codes` returns the supported country codes (or full `pycountry` objects).
+```
+🏆 get_top_names(...)
+```
 
-- `alpha_2`: Only returns the country codes: 2-char code. Default is False.
+Retrieves the most popular names across supported countries.
 
-Fuzzy search and also auto complete search are supported.
+Parameters:
+
+- n: int = 100 — Number of names to return (per group).
+- gender: Optional[str] = None — 'Male' or 'Female' (only valid for first names).
+- use_first_names: bool = True — Choose between first names and last names.
+- country_alpha2: Optional[str] = None — 2-letter ISO country code (e.g., 'US', 'JP').
+
+```
+🌍 get_country_codes(alpha_2: bool = False)
+```
+Returns a list of supported countries found in the dataset.
+
+
+Parameters:
+
+- alpha_2: bool = False — If True, returns 2-letter ISO codes only.
+
+```
+✨ auto_complete(...)
+```
+
+Returns top name suggestions that begin with the specified prefix.
+
+Parameters:
+
+- name: str — Prefix string (e.g., 'Al').
+- n: int = 5 — Max number of results.
+- use_first_names: bool = True — Use first names if True, else last names.
+- country_alpha2: Optional[str] = None — Filter by country.
+- gender: Optional[str] = None — 'Male' or 'Female' (first names only).
+
+```
+🧠 fuzzy_search(...)
+```
+
+Performs fuzzy matching to suggest similar names.
+
+Parameters:
+
+- name: str — Search term (e.g., 'Jonh').
+- n: int = 5 — Number of close matches to return.
+- use_first_names: bool = True — Use first names if True, else last names.
+- country_alpha2: Optional[str] = None — Filter by country.
+- gender: Optional[str] = None — 'Male' or 'Female' (first names only).
+
+🧾 Notes
+- Country codes are ISO 3166-1 alpha-2 format (e.g., US, FR, JP).
+- rank: Lower numbers are more popular (e.g., rank 1 is the most common).
+- All lookups are case-insensitive and will be normalized (e.g., "joHN" → "John").
+- For last names, gender data is not applicable.
 
 ## Full dataset
 
