@@ -63,6 +63,12 @@ print(nd.get_top_names(n=5, country_alpha2='ES'))
 print(nd.get_country_codes(alpha_2=True))
 # ['AE', 'AF', 'AL', 'AO', 'AR', 'AT', 'AZ', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BN', 'BO', 'BR', 'BW', 'CA', 'CH', 'CL', 'CM', 'CN', 'CO', 'CR', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DZ', 'EC', 'EE', 'EG', 'ES', 'ET', 'FI', 'FJ', 'FR', 'GB', 'GE', 'GH', 'GR', 'GT', 'HK', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IL', 'IN', 'IQ', 'IR', 'IS', 'IT', 'JM', 'JO', 'JP', 'KH', 'KR', 'KW', 'KZ', 'LB', 'LT', 'LU', 'LY', 'MA', 'MD', 'MO', 'MT', 'MU', 'MV', 'MX', 'MY', 'NA', 'NG', 'NL', 'NO', 'OM', 'PA', 'PE', 'PH', 'PL', 'PR', 'PS', 'PT', 'QA', 'RS', 'RU', 'SA', 'SD', 'SE', 'SG', 'SI', 'SV', 'SY', 'TM', 'TN', 'TR', 'TW', 'US', 'UY', 'YE', 'ZA']
 
+print(nd.auto_complete('isa', n=3)) # very fast, can be used in a loop in realtime.
+# [{'name': 'Isabel', 'rank': 144}, {'name': 'Isaac', 'rank': 266}, {'name': 'Isa', 'rank': 450}]
+
+print(nd.fuzzy_search('isablel', n=3)) # slow to compute.
+# [{'name': 'Isabel', 'rank': 144}, {'name': 'Isabela', 'rank': 1228}, {'name': 'Isabele', 'rank': 2386}]
+
 nd.first_names
 # Dictionary of all the first names with their attributes.
 
