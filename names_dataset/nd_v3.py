@@ -1,8 +1,8 @@
 import copy
-import json
+import gzip
 import operator
 import os
-import zipfile
+import pickle
 from collections import defaultdict
 from pathlib import Path
 from typing import Optional, Dict, List
@@ -116,10 +116,10 @@ class NameDataset:
     def __init__(self, load_first_names=True, load_last_names=True):
         if not load_first_names and not load_last_names:
             raise ValueError('Select either [load_first_names=True] and/or [load_last_names=True].')
-        first_names_filename = Path(os.path.dirname(__file__)) / 'v3/first_names.zip'
-        last_names_filename = Path(os.path.dirname(__file__)) / 'v3/last_names.zip'
-        self.first_names = self._read_json_from_zip(first_names_filename) if load_first_names else None
-        self.last_names = self._read_json_from_zip(last_names_filename) if load_last_names else None
+        first_names_filename = Path(os.path.dirname(__file__)) / 'v3/first_names.pkl.gz'
+        last_names_filename = Path(os.path.dirname(__file__)) / 'v3/last_names.pkl.gz'
+        self.first_names = self._read_pickle_from_gzip(first_names_filename) if load_first_names else None
+        self.last_names = self._read_pickle_from_gzip(last_names_filename) if load_last_names else None
         self.country_codes = self.get_country_codes(alpha_2=True)
 
     def auto_complete(
@@ -152,10 +152,10 @@ class NameDataset:
         )
 
     @staticmethod
-    def _read_json_from_zip(zip_file):
-        with zipfile.ZipFile(zip_file) as z:
-            with z.open(z.filelist[0]) as f:
-                return json.load(f)
+    def _read_pickle_from_gzip(gzip_path):
+        print(gzip_path)
+        with gzip.open(gzip_path, 'rb') as f:
+            return pickle.load(f)
 
     def _process_inputs(
             self,
