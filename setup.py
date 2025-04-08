@@ -6,7 +6,7 @@ VERSION = '3.2.0'
 
 packages = find_packages()
 package_name = packages[0]
-data_files = list(Path(package_name).glob('**/*.txt')) + list(Path(package_name).glob('**/*.zip'))
+data_files = list(Path(package_name).glob('**/*.txt')) + list(Path(package_name).glob('**/*.pkl.gz'))
 data_files = [str(d) for d in data_files]
 
 setup(
