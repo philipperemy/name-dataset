@@ -88,9 +88,10 @@ nd.last_names
 
 Searches for a name and returns metadata for both first and last names (if available).
 
-- country: The probability that the name belongs to a given country. Only the top 10 matching countries are returned.
-- gender: The probability of the person being male or female.
-- rank: The popularity rank of the name in its country (1 = most popular).
+The result is:
+- `country`: The probability that the name belongs to a given country. Only the top 10 matching countries are returned.
+- `gender`: The probability of the person being male or female.
+- `rank`: The popularity rank of the name in its country (1 = most popular).
 
 📌 Note: Gender data only applies to first names.
 
@@ -102,20 +103,19 @@ Retrieves the most popular names across supported countries.
 
 Parameters:
 
-- n: int = 100 — Number of names to return (per group).
-- gender: Optional[str] = None — 'Male' or 'Female' (only valid for first names).
-- use_first_names: bool = True — Choose between first names and last names.
-- country_alpha2: Optional[str] = None — 2-letter ISO country code (e.g., 'US', 'JP').
+- `n` - Number of names to return (per group).
+- `gender` - 'Male' or 'Female' (only valid for first names).
+- `use_first_names` - Choose between first names and last names.
+- `country_alpha2` - 2-letter ISO country code (e.g., 'US', 'JP').
 
 ```
 🌍 get_country_codes(alpha_2: bool = False)
 ```
-Returns a list of supported countries found in the dataset.
-
+Returns a list of supported countries found in the dataset. Country codes are ISO 3166-1 alpha-2 format (e.g., US, FR, JP).
 
 Parameters:
 
-- alpha_2: bool = False — If True, returns 2-letter ISO codes only.
+- `alpha_2` - If True, returns 2-letter ISO codes only.
 
 ```
 ✨ auto_complete(...)
@@ -125,11 +125,11 @@ Returns top name suggestions that begin with the specified prefix.
 
 Parameters:
 
-- name: str — Prefix string (e.g., 'Al').
-- n: int = 5 — Max number of results.
-- use_first_names: bool = True — Use first names if True, else last names.
-- country_alpha2: Optional[str] = None — Filter by country.
-- gender: Optional[str] = None — 'Male' or 'Female' (first names only).
+- `name` — Prefix string (e.g., 'Al').
+- `n` — Max number of results.
+- `use_first_names` — Use first names if True, else last names.
+- `country_alpha2` — Filter by country.
+- `gender` — 'Male' or 'Female' (first names only).
 
 ```
 🧠 fuzzy_search(...)
@@ -139,17 +139,11 @@ Performs fuzzy matching to suggest similar names.
 
 Parameters:
 
-- name: str — Search term (e.g., 'Jonh').
-- n: int = 5 — Number of close matches to return.
-- use_first_names: bool = True — Use first names if True, else last names.
-- country_alpha2: Optional[str] = None — Filter by country.
-- gender: Optional[str] = None — 'Male' or 'Female' (first names only).
-
-🧾 Notes
-- Country codes are ISO 3166-1 alpha-2 format (e.g., US, FR, JP).
-- rank: Lower numbers are more popular (e.g., rank 1 is the most common).
-- All lookups are case-insensitive and will be normalized (e.g., "joHN" → "John").
-- For last names, gender data is not applicable.
+- `name` — Search term (e.g., 'Jonh').
+- `n` — Number of close matches to return.
+- `use_first_names` — Use first names if True, else last names.
+- `country_alpha2` — Filter by country.
+- `gender` — 'Male' or 'Female' (first names only).
 
 ## Full dataset
 
