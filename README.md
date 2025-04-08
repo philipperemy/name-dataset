@@ -3,19 +3,21 @@
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
 
-**To download the raw CSV data for your analysis, browse [here](#full-dataset).**
+This Python library provides detailed insights about names, including:
+- Popularity (ranking by country)
+- Gender prediction
+- Country-specific statistics (105 countries supported)
+- Fuzzy search (e.g., search for "ISABLE" returns "ISABEL")
+- Autocomplete search (e.g., search for names starting with "ISA")
 
-This Python library provides information about names: 
-- Popularity (rank)
-- Country (105 countries are supported)
-- Gender
-- Fuzzy search (search with an erroneous name, `ISABLE -> ISABEL`)
-- Auto-complete search (realtime, for example all names starting with `ISA*`.)
+
 
 It can give you an answer to some of those questions:
 - Who is `Zoe`? Likely a `Female, United Kindgom`. 
 - Knows `Philippe`? Likely a `Male, France`. And with the spelling `Philipp`? `Male, Germany`.
 - How about `Nikki`? Likely a `Female, United States`.
+
+📥 To download the raw CSV data for your analysis, browse [here](#full-dataset).
 
 ## Composition
 
@@ -31,9 +33,9 @@ pip install names-dataset
 
 ## Usage
 
-*NOTE*: The library requires 3.2GB of RAM to load the full dataset in memory. Make sure you have enough RAM to avoid `MemoryError`. 
+⚠️ Note: This library requires approximately 3.2 GB of RAM to load the full dataset into memory. Make sure your system has enough available memory to avoid `MemoryError`.
 
-Once it's installed, run those commands to familiarize yourself with the library:
+Once installed, you can run the following commands to get familiar with the library:
 
 ```python
 from names_dataset import NameDataset, NameWrapper
@@ -80,14 +82,14 @@ nd.last_names
 ```
 ## API
 
-The `search` call provides information about:
+The `search` endpoint provides information about:
 - `country`: The probability of the name belonging to a country. Only the top 10 countries matching the name are returned.
 - `gender`: The probability of the person to be a `Male` or `Female`.
 - `rank`: The rank of the name in his country. `1` means the most popular name.
 
 - **NOTE**: `first_name/last_name`: the `gender` does not apply to `last_name`.
 
-The `get_top_names` call gives the most popular names:
+The `get_top_names` endpoint gives the most popular names:
 
 - `n`: The number of names to return matching some criteria. Default is 100.
 - `gender`: Filters on `Male` or `Female`. Default is None (both are returned).
@@ -97,6 +99,8 @@ The `get_top_names` call gives the most popular names:
 The `get_country_codes` returns the supported country codes (or full `pycountry` objects).
 
 - `alpha_2`: Only returns the country codes: 2-char code. Default is False.
+
+Fuzzy search and also auto complete search are supported.
 
 ## Full dataset
 
