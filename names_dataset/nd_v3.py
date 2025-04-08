@@ -153,7 +153,6 @@ class NameDataset:
 
     @staticmethod
     def _read_pickle_from_gzip(gzip_path):
-        print(gzip_path)
         with gzip.open(gzip_path, 'rb') as f:
             return pickle.load(f)
 
