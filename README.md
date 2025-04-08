@@ -9,6 +9,8 @@ This Python library provides information about names:
 - Popularity (rank)
 - Country (105 countries are supported)
 - Gender
+- Fuzzy search (search with an erroneous name, `ISABLE -> ISABEL`)
+- Auto-complete search (realtime, for example all names starting with `ISA*`.)
 
 It can give you an answer to some of those questions:
 - Who is `Zoe`? Likely a `Female, United Kindgom`. 
