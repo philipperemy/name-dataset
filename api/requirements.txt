@@ -1,3 +1,5 @@
 waitress
 flask
 paste
+fuzzywuzzy
+python-Levenshtein
