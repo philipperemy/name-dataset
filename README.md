@@ -1,4 +1,4 @@
-# First and Last Names Database
+# First and Last Name Database
 
 [![Downloads](https://pepy.tech/badge/names-dataset)](https://pepy.tech/project/names-dataset)
 [![Downloads](https://pepy.tech/badge/names-dataset/month)](https://pepy.tech/project/names-dataset/month)
