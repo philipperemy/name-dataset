@@ -13,7 +13,7 @@ This Python library provides detailed insights about names, including:
 
 
 It can give you an answer to some of those questions:
-- Who is `Zoe`? Likely a `Female, United Kindgom`. 
+- Who is `Zoe`? Likely a `Female, United Kingdom`. 
 - Knows `Philippe`? Likely a `Male, France`. And with the spelling `Philipp`? `Male, Germany`.
 - How about `Nikki`? Likely a `Female, United States`.
 
